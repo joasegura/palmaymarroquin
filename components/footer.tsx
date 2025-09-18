@@ -41,7 +41,7 @@ export function Footer() {
         >
           {/* Company Info */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold mb-4">InmoExpert</h3>
+            <h3 className="text-xl font-bold mb-4">Palma & Marroquín</h3>
             <p className="text-primary-foreground/80 mb-4 text-sm">
               Tu socio inmobiliario de confianza. Más de 15 años conectando personas con su hogar ideal.
             </p>

@@ -117,7 +117,7 @@ export function ServicesSection() {
 
         {/* Dynamic Carousel with 3 Cards */}
         <div className="relative max-w-7xl mx-auto mb-12">
-          <div className="flex items-center justify-center space-x-2 sm:space-x-4 overflow-hidden">
+          <div className="flex items-center justify-center space-x-2 sm:space-x-4 overflow-hidden min-h-[400px] sm:min-h-[500px]">
             {services.map((service, index) => {
               const isActive = index === currentService
               const isLeft = index === (currentService - 1 + services.length) % services.length
@@ -140,8 +140,8 @@ export function ServicesSection() {
                     y: isActive ? 0 : 20
                   }}
                   animate={{ 
-                    opacity: isActive ? 1 : 0.6,
-                    scale: isActive ? 1 : 0.9,
+                    opacity: isActive ? 1 : 0.7,
+                    scale: isActive ? 1 : 0.85,
                     x: isLeft ? -40 : isRight ? 40 : 0,
                     y: isActive ? -20 : 0
                   }}

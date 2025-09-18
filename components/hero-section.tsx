@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="relative h-screen overflow-hidden py-16 sm:py-24 lg:py-32">
+    <section id="inicio" className="relative h-screen overflow-hidden py-12 sm:py-24 lg:py-32 flex sm:block items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           className="max-w-4xl mx-auto text-center h-full flex flex-col items-center justify-center"
