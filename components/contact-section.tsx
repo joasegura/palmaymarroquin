@@ -223,7 +223,7 @@ export function ContactSection() {
                     <Phone className="h-5 w-5 text-brand-green-primary mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <div className="font-semibold text-foreground">Teléfono</div>
-                      <div className="text-muted-foreground font-medium">(011) 2345-6789</div>
+                      <div className="text-muted-foreground font-medium">(0376) 423-5678</div>
                       <div className="text-muted-foreground font-medium">WhatsApp: (011) 9876-5432</div>
                     </div>
                   </div>
@@ -241,8 +241,8 @@ export function ContactSection() {
                     <div>
                       <div className="font-semibold text-foreground">Oficina</div>
                       <div className="text-muted-foreground font-medium">
-                        Av. Córdoba 1234, Piso 5<br />
-                        Ciudad de Córdoba, Argentina
+                        Colón 1234, <br />
+                        Corrientes, Argentina
                       </div>
                     </div>
                   </div>

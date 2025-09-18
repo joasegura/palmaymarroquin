@@ -120,8 +120,8 @@ export function Footer() {
             <div className="space-y-3 text-sm">
               {[
                 { icon: Phone, text: "(011) 2345-6789" },
-                { icon: Mail, text: "info@inmoexpert.com.ar" },
-                { icon: MapPin, text: "Av. Córdoba 1234, Piso 5\nCiudad de Córdoba, Argentina" }
+                { icon: Mail, text: "info@palmaymarroquin.com.ar" },
+                { icon: MapPin, text: "Colón 1234\nCorrientes, Argentina" }
               ].map((contact, index) => (
                 <motion.div
                   key={index}
@@ -156,7 +156,7 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              © 2024 InmoExpert. Todos los derechos reservados.
+              © 2024 Palma&Marroquín. Todos los derechos reservados.
             </motion.div>
             <motion.div 
               className="flex space-x-6 text-primary-foreground/80"
