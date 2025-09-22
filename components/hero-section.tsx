@@ -3,9 +3,12 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Award } from "lucide-react"
 import { motion } from "framer-motion"
+import { useTranslation } from "@/contexts/translation-context"
 // use public/portada.mp4 to avoid bundling loaders for media
 
 export function HeroSection() {
+  const { t } = useTranslation()
+  
   return (
     <section id="inicio" className="relative h-screen overflow-hidden py-12 sm:py-24 lg:py-32 flex sm:block items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -29,7 +32,7 @@ export function HeroSection() {
             >
               <Award className="h-4 w-4 mr-2" />
             </motion.div>
-            Más de 15 años de experiencia
+            {t.hero.badge}
           </motion.div>
 
           <motion.h1 
@@ -38,16 +41,41 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Tu Próxima Propiedad
+            {t.hero.title}
             <motion.span 
               className="text-brand-green-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              {" "}Te Está Esperando
+              {" "}{t.hero.titleHighlight}
             </motion.span>
           </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p 
+            className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            {t.hero.subtitle}
+          </motion.p>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <Button 
+              size="lg" 
+              className="bg-brand-green-primary hover:bg-brand-green-dark text-white px-8 py-3 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              {t.hero.cta}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </motion.div>
 
           {/* Floating elements */}
           <motion.div

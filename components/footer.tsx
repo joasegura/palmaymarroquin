@@ -2,8 +2,10 @@
 
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import { motion } from "framer-motion"
+import { useTranslation } from "@/contexts/translation-context"
 
 export function Footer() {
+  const { t } = useTranslation()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -41,9 +43,9 @@ export function Footer() {
         >
           {/* Company Info */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold mb-4">Palma & Marroquín</h3>
+            <h3 className="text-xl font-bold mb-4">{t.footer.company.title}</h3>
             <p className="text-primary-foreground/80 mb-4 text-sm">
-              Tu socio inmobiliario de confianza. Más de 15 años conectando personas con su hogar ideal.
+              {t.footer.company.description}
             </p>
             <div className="flex space-x-4">
               {[
@@ -66,14 +68,9 @@ export function Footer() {
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold mb-4">Servicios</h4>
+            <h4 className="font-semibold mb-4">{t.footer.services.title}</h4>
             <ul className="space-y-2 text-sm">
-              {[
-                "Propiedades en Venta",
-                "Campos Disponibles", 
-                "Tasaciones Profesionales",
-                "Asesoramiento Legal"
-              ].map((service, index) => (
+              {t.footer.services.items.map((service, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -10 }}
@@ -91,14 +88,9 @@ export function Footer() {
 
           {/* Company */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold mb-4">Empresa</h4>
+            <h4 className="font-semibold mb-4">{t.footer.companyLinks.title}</h4>
             <ul className="space-y-2 text-sm">
-              {[
-                "Sobre Nosotros",
-                "Nuestro Equipo",
-                "Casos de Éxito", 
-                "Contacto"
-              ].map((link, index) => (
+              {t.footer.companyLinks.items.map((link, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -10 }}
@@ -116,12 +108,12 @@ export function Footer() {
 
           {/* Contact */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold mb-4">Contacto</h4>
+            <h4 className="font-semibold mb-4">{t.footer.contact.title}</h4>
             <div className="space-y-3 text-sm">
               {[
-                { icon: Phone, text: "(011) 2345-6789" },
-                { icon: Mail, text: "info@palmaymarroquin.com.ar" },
-                { icon: MapPin, text: "Colón 1234\nCorrientes, Argentina" }
+                { icon: Phone, text: t.footer.contact.phone },
+                { icon: Mail, text: t.footer.contact.email },
+                { icon: MapPin, text: t.footer.contact.address }
               ].map((contact, index) => (
                 <motion.div
                   key={index}
@@ -156,7 +148,7 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              © 2024 Palma&Marroquín. Todos los derechos reservados.
+              {t.footer.copyright}
             </motion.div>
             <motion.div 
               className="flex space-x-6 text-primary-foreground/80"
@@ -166,10 +158,10 @@ export function Footer() {
               transition={{ delay: 0.3 }}
             >
               <a href="#" className="hover:text-primary-foreground transition-colors">
-                Política de Privacidad
+                {t.footer.privacy}
               </a>
               <a href="#" className="hover:text-primary-foreground transition-colors">
-                Términos y Condiciones
+                {t.footer.terms}
               </a>
               <span>Matrícula N° 12345</span>
             </motion.div>

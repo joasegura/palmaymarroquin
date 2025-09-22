@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { DM_Sans, DM_Serif_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { TranslationProvider } from "@/contexts/translation-context"
 import "./globals.css"
 
 const dmSans = DM_Sans({
@@ -32,8 +33,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`font-sans ${dmSans.variable} ${dmSerifDisplay.variable}`}>
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+        <TranslationProvider>
+          <Suspense fallback={null}>{children}</Suspense>
+          <Analytics />
+        </TranslationProvider>
       </body>
     </html>
   )

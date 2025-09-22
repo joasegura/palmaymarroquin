@@ -4,8 +4,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { useTranslation } from "@/contexts/translation-context"
 
 export function WhyChooseUsSection() {
+  const { t } = useTranslation()
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
   const [visibleStats, setVisibleStats] = useState(false)
   const [animatedNumbers, setAnimatedNumbers] = useState({
@@ -15,36 +17,19 @@ export function WhyChooseUsSection() {
     availability: 0
   })
   
-  const reasons = [
-    {
-      icon: "/iconos/Icono_Manos de acuerdo.png",
-      title: "Experiencia Comprobada",
-      description:
-        "Más de 15 años en el mercado inmobiliario local, con cientos de operaciones exitosas que nos respaldan.",
-    },
-    {
-      icon: "/iconos/Icono_Pin Ubic.png",
-      title: "Conocimiento del Mercado Local",
-      description:
-        "Sabemos cada barrio, cada zona rural, cada oportunidad. Nuestro conocimiento es tu ventaja competitiva.",
-    },
-    {
-      icon: "/iconos/Icono_Peón.png",
-      title: "Equipo Técnico Profesional",
-      description:
-        "Martilleros, tasadores y asesores matriculados que garantizan la legalidad y precisión en cada operación.",
-    },
-    {
-      icon: "/iconos/Icono_Manos de acuerdo.png",
-      title: "Transparencia Total",
-      description: "Sin sorpresas, sin letra chica. Te mantenemos informado en cada etapa del proceso.",
-    },
-    {
-      icon: "/iconos/Icono_Tractor.png",
-      title: "Agilidad y Eficiencia",
-      description: "Procesos optimizados que acortan tiempos sin sacrificar calidad ni seguridad jurídica.",
-    },
+  const reasonIcons = [
+    "/iconos/Icono_Manos de acuerdo.png",
+    "/iconos/Icono_Pin Ubic.png",
+    "/iconos/Icono_Peón.png",
+    "/iconos/Icono_Tractor.png",
+    "/iconos/Icono_Casa.png",
   ]
+
+  const reasons = t.whyChooseUs.reasons.map((reason, index) => ({
+    icon: reasonIcons[index % reasonIcons.length],
+    title: reason.title,
+    description: reason.description,
+  }))
 
   // Animate numbers when stats become visible
   useEffect(() => {
@@ -148,9 +133,9 @@ export function WhyChooseUsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-foreground mb-4">¿Por Qué Elegirnos?</h2>
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-foreground mb-4">{t.whyChooseUs.title}</h2>
           <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
-            La diferencia que marca resultados en cada operación inmobiliaria
+            {t.whyChooseUs.subtitle}
           </p>
         </motion.div>
 
@@ -217,28 +202,15 @@ export function WhyChooseUsSection() {
           onViewportEnter={() => setVisibleStats(true)}
         >
           <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { 
-                number: animatedNumbers.operations, 
-                suffix: "+", 
-                label: "Operaciones Exitosas" 
-              },
-              { 
-                number: animatedNumbers.days, 
-                suffix: "", 
-                label: "Días Promedio de Venta" 
-              },
-              { 
-                number: animatedNumbers.satisfaction, 
-                suffix: "%", 
-                label: "Satisfacción del Cliente" 
-              },
-              { 
-                number: animatedNumbers.availability, 
-                suffix: "/7", 
-                label: "Atención Disponible" 
-              }
-            ].map((stat, index) => (
+            {t.whyChooseUs.stats.items.map((stat, index) => {
+              const animatedValue = [
+                animatedNumbers.operations,
+                animatedNumbers.days, 
+                animatedNumbers.satisfaction,
+                animatedNumbers.availability
+              ][index]
+              
+              return (
               <motion.div
                 key={index}
                 variants={statItemVariants}
@@ -258,11 +230,12 @@ export function WhyChooseUsSection() {
                     stiffness: 200
                   }}
                 >
-                  {stat.number}{stat.suffix}
+                  {animatedValue}{stat.suffix}
                 </motion.div>
                 <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
               </motion.div>
-            ))}
+              )
+            })}
           </motion.div>
         </motion.div>
       </div>

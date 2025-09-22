@@ -6,46 +6,25 @@ import { Home, Tractor, FileText, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import React from "react"
+import { useTranslation } from "@/contexts/translation-context"
 
 export function ServicesSection() {
   const [currentService, setCurrentService] = useState(0)
+  const { t } = useTranslation()
 
-  const services = [
-    {
-      icon: Home,
-      title: "Venta de Propiedades",
-      description:
-        "Especialistas en propiedades urbanas con estrategias de marketing digital y acompañamiento integral.",
-      features: [
-        "Evaluación de mercado precisa",
-        "Marketing digital especializado",
-        "Acompañamiento integral",
-        "Asesoramiento legal y técnico",
-      ],
-    },
-    {
-      icon: Tractor,
-      title: "Campos y Propiedades Rurales",
-      description: "Conocimiento específico del sector agropecuario con análisis de productividad y rentabilidad.",
-      features: [
-        "Análisis de productividad",
-        "Red de contactos especializados",
-        "Evaluación agrotécnica",
-        "Asesoramiento en inversiones",
-      ],
-    },
-    {
-      icon: FileText,
-      title: "Tasaciones Profesionales",
-      description: "Informes técnicos certificados con metodología actualizada y reconocimiento bancario.",
-      features: [
-        "Profesionales matriculados",
-        "Reconocimiento bancario",
-        "Metodología actualizada",
-        "Entrega rápida y confiable",
-      ],
-    },
-  ]
+  const icons = [Home, Tractor, FileText, Home, Tractor, FileText]
+  
+  const services = t.services.items.map((service, index) => ({
+    icon: icons[index % icons.length],
+    title: service.title,
+    description: service.description,
+    features: [
+      "Evaluación de mercado precisa",
+      "Marketing digital especializado", 
+      "Acompañamiento integral",
+      "Asesoramiento legal y técnico",
+    ],
+  }))
 
   // Auto-rotate services every 4 seconds
   useEffect(() => {
@@ -108,21 +87,22 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-foreground mb-4">
-            Nuestros Servicios Especializados
+            {t.services.title}
           </h2>
           <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
-            Soluciones inmobiliarias integrales con el respaldo de años de experiencia y conocimiento técnico
+            {t.services.subtitle}
           </p>
         </div>
 
         {/* Dynamic Carousel with 3 Cards */}
         <div className="relative max-w-7xl mx-auto mb-12">
-          <div className="flex items-center justify-center space-x-2 sm:space-x-4 overflow-hidden min-h-[400px] sm:min-h-[500px]">
+          <div className="flex items-center justify-center space-x-6 sm:space-x-8 overflow-hidden min-h-[400px] sm:min-h-[500px]">
             {services.map((service, index) => {
               const isActive = index === currentService
               const isLeft = index === (currentService - 1 + services.length) % services.length
               const isRight = index === (currentService + 1) % services.length
               const isVisible = isActive || isLeft || isRight
+              const isCompactLayout = services.length <= 3
               
               // Only render the 3 visible cards
               if (!isVisible) return null
@@ -136,14 +116,14 @@ export function ServicesSection() {
                   initial={{ 
                     opacity: 0, 
                     scale: 0.8,
-                    x: isLeft ? -100 : isRight ? 100 : 0,
-                    y: isActive ? 0 : 20
+                    x: isCompactLayout ? 0 : (isLeft ? -100 : isRight ? 100 : 0),
+                    y: isCompactLayout ? 0 : (isActive ? 0 : 20)
                   }}
                   animate={{ 
                     opacity: isActive ? 1 : 0.7,
-                    scale: isActive ? 1 : 0.85,
-                    x: isLeft ? -40 : isRight ? 40 : 0,
-                    y: isActive ? -20 : 0
+                    scale: isActive ? 1 : 0.9,
+                    x: isCompactLayout ? 0 : (isLeft ? -40 : isRight ? 40 : 0),
+                    y: isCompactLayout ? 0 : (isActive ? -20 : 0)
                   }}
                   transition={{ 
                     duration: 0.6,
@@ -151,14 +131,14 @@ export function ServicesSection() {
                   }}
                   onClick={() => setCurrentService(index)}
                   whileHover={{ 
-                    scale: isActive ? 1.05 : 0.9,
-                    y: isActive ? -25 : -5
+                    scale: isActive ? 1.03 : 0.98,
+                    y: isCompactLayout ? 0 : (isActive ? -25 : -5)
                   }}
                 >
                   <Card className={`transition-all duration-300 ${
                     isActive 
                       ? 'bg-white/95 backdrop-blur-sm border-brand-green-primary/40 rounded-2xl shadow-2xl w-72 sm:w-80' 
-                      : 'bg-white/70 backdrop-blur-sm border-brand-green-primary/20 rounded-xl shadow-lg w-56 sm:w-64'
+                      : 'bg-white/70 backdrop-blur-sm border-brand-green-primary/20 rounded-xl shadow-lg w-60 sm:w-64'
                   }`}>
                     <CardHeader className="text-center pb-4">
                       <motion.div
@@ -236,8 +216,12 @@ export function ServicesSection() {
           {/* Previous Button */}
           <motion.button
             onClick={() => setCurrentService((prev) => (prev - 1 + services.length) % services.length)}
-            className="p-3 rounded-full bg-brand-green-primary/10 hover:bg-brand-green-primary/20 text-brand-green-primary transition-colors"
-            whileHover={{ scale: 1.1 }}
+            className="p-3 rounded-full bg-white/80 hover:bg-brand-green-primary text-brand-green-primary hover:text-white border border-brand-green-primary/20 hover:border-brand-green-primary transition-all duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{ 
+              scale: 1.1,
+              backgroundColor: "#003300",
+              color: "#FFFFFF"
+            }}
             whileTap={{ scale: 0.9 }}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,13 +234,17 @@ export function ServicesSection() {
             {services.map((_, index) => (
               <motion.button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 border-2 ${
                   index === currentService
-                    ? 'bg-brand-green-primary'
-                    : 'bg-brand-green-primary/30'
+                    ? 'bg-brand-green-primary border-brand-green-primary shadow-lg'
+                    : 'bg-white/60 border-brand-green-primary/40 hover:border-brand-green-primary/60'
                 }`}
                 onClick={() => setCurrentService(index)}
-                whileHover={{ scale: 1.2 }}
+                whileHover={{ 
+                  scale: 1.3,
+                  backgroundColor: index === currentService ? "#003300" : "#417C41",
+                  borderColor: "#003300"
+                }}
                 whileTap={{ scale: 0.9 }}
               />
             ))}
@@ -265,8 +253,12 @@ export function ServicesSection() {
           {/* Next Button */}
           <motion.button
             onClick={() => setCurrentService((prev) => (prev + 1) % services.length)}
-            className="p-3 rounded-full bg-brand-green-primary/10 hover:bg-brand-green-primary/20 text-brand-green-primary transition-colors"
-            whileHover={{ scale: 1.1 }}
+            className="p-3 rounded-full bg-white/80 hover:bg-brand-green-primary text-brand-green-primary hover:text-white border border-brand-green-primary/20 hover:border-brand-green-primary transition-all duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{ 
+              scale: 1.1,
+              backgroundColor: "#003300",
+              color: "#FFFFFF"
+            }}
             whileTap={{ scale: 0.9 }}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

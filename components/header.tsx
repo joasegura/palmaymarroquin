@@ -2,12 +2,13 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Image from "next/image"
-import logoImage from "@/img/Logotipo (1).jpg"
+import { useTranslation } from "@/contexts/translation-context"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useTranslation()
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -17,9 +18,11 @@ export function Header() {
           <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center">
               <Image
-                src={logoImage}
+                src="/img/Logotipo.png"
                 alt="Palma Marroquín"
                 className="h-14 w-auto object-contain"
+                width={200}
+                height={56}
                 priority
               />
             </a>
@@ -28,29 +31,61 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#inicio" className="text-foreground hover:text-primary transition-colors">
-              Inicio
+              {t.header.inicio}
             </a>
             <a href="#servicios" className="text-foreground hover:text-primary transition-colors">
-              Servicios
+              {t.header.servicios}
             </a>
             <a href="#nosotros" className="text-foreground hover:text-primary transition-colors">
-              Nosotros
+              {t.header.nosotros}
             </a>
             <a href="#contacto" className="text-foreground hover:text-primary transition-colors">
-              Contacto
+              {t.header.contacto}
             </a>
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop Language Selector & CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="tel:+5491123456789"
-              className="flex items-center text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Phone className="h-4 w-4 mr-2" />
-              (011) 2345-6789
-            </a>
-            <Button>Consultar</Button>
+            {/* Language Buttons */}
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setLanguage('es')}
+                className={`p-1 rounded-lg transition-all duration-200 ${
+                  language === 'es' 
+                    ? 'bg-brand-green-primary/10 border-2 border-brand-green-primary' 
+                    : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
+                }`}
+                title="Español"
+              >
+                {/* Bandera Argentina */}
+                <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
+                  <div className="w-full h-1/3 bg-blue-600"></div>
+                  <div className="w-full h-1/3 bg-white flex items-center justify-center">
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                  </div>
+                  <div className="w-full h-1/3 bg-blue-600"></div>
+                </div>
+              </button>
+              <button
+                onClick={() => setLanguage('pt')}
+                className={`p-1 rounded-lg transition-all duration-200 ${
+                  language === 'pt' 
+                    ? 'bg-brand-green-primary/10 border-2 border-brand-green-primary' 
+                    : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
+                }`}
+                title="Português"
+              >
+                {/* Bandera Brasil */}
+                <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300 relative">
+                  <div className="w-full h-full bg-green-600"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 border-2 border-yellow-400 rounded-full"></div>
+                </div>
+              </button>
+            </div>
+            <Button>{t.header.consultar}</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -67,23 +102,58 @@ export function Header() {
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
               <a href="#inicio" className="text-foreground hover:text-primary transition-colors">
-                Inicio
+                {t.header.inicio}
               </a>
               <a href="#servicios" className="text-foreground hover:text-primary transition-colors">
-                Servicios
+                {t.header.servicios}
               </a>
               <a href="#nosotros" className="text-foreground hover:text-primary transition-colors">
-                Nosotros
+                {t.header.nosotros}
               </a>
               <a href="#contacto" className="text-foreground hover:text-primary transition-colors">
-                Contacto
+                {t.header.contacto}
               </a>
               <div className="pt-4 border-t border-border">
-                <a href="tel:+5491123456789" className="flex items-center text-sm text-muted-foreground mb-3">
-                  <Phone className="h-4 w-4 mr-2" />
-                  (011) 2345-6789
-                </a>
-                <Button className="w-full">Consultar</Button>
+                {/* Mobile Language Buttons */}
+                <div className="flex items-center justify-center space-x-3 mb-4">
+                  <button
+                    onClick={() => setLanguage('es')}
+                    className={`p-1 rounded-lg transition-all duration-200 ${
+                      language === 'es' 
+                        ? 'bg-brand-green-primary/10 border-2 border-brand-green-primary' 
+                        : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
+                    }`}
+                    title="Español"
+                  >
+                    {/* Bandera Argentina */}
+                    <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
+                      <div className="w-full h-1/3 bg-blue-600"></div>
+                      <div className="w-full h-1/3 bg-white flex items-center justify-center">
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                      </div>
+                      <div className="w-full h-1/3 bg-blue-600"></div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => setLanguage('pt')}
+                    className={`p-1 rounded-lg transition-all duration-200 ${
+                      language === 'pt' 
+                        ? 'bg-brand-green-primary/10 border-2 border-brand-green-primary' 
+                        : 'bg-gray-100 hover:bg-gray-200 border-2 border-transparent'
+                    }`}
+                    title="Português"
+                  >
+                    {/* Bandera Brasil */}
+                    <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300 relative">
+                      <div className="w-full h-full bg-green-600"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+                      </div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 border-2 border-yellow-400 rounded-full"></div>
+                    </div>
+                  </button>
+                </div>
+                <Button className="w-full">{t.header.consultar}</Button>
               </div>
             </nav>
           </div>
