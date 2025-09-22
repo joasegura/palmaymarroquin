@@ -7,10 +7,12 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import React from "react"
 import { useTranslation } from "@/contexts/translation-context"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export function ServicesSection() {
   const [currentService, setCurrentService] = useState(0)
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
 
   const icons = [Home, Tractor, FileText, Home, Tractor, FileText]
   
@@ -96,13 +98,13 @@ export function ServicesSection() {
 
         {/* Dynamic Carousel with 3 Cards */}
         <div className="relative max-w-7xl mx-auto mb-12">
-          <div className="flex items-center justify-center space-x-6 sm:space-x-8 overflow-hidden min-h-[400px] sm:min-h-[500px]">
+          <div className={`flex items-center justify-center ${isMobile ? 'space-x-0' : 'space-x-6 sm:space-x-8'} overflow-hidden min-h-[380px] sm:min-h-[500px]`}>
             {services.map((service, index) => {
               const isActive = index === currentService
               const isLeft = index === (currentService - 1 + services.length) % services.length
               const isRight = index === (currentService + 1) % services.length
-              const isVisible = isActive || isLeft || isRight
-              const isCompactLayout = services.length <= 3
+              const isVisible = isMobile ? isActive : (isActive || isLeft || isRight)
+              const isCompactLayout = isMobile || services.length <= 3
               
               // Only render the 3 visible cards
               if (!isVisible) return null
@@ -120,8 +122,8 @@ export function ServicesSection() {
                     y: isCompactLayout ? 0 : (isActive ? 0 : 20)
                   }}
                   animate={{ 
-                    opacity: isActive ? 1 : 0.7,
-                    scale: isActive ? 1 : 0.9,
+                    opacity: isActive ? 1 : 0.8,
+                    scale: isActive ? 1 : (isMobile ? 1 : 0.92),
                     x: isCompactLayout ? 0 : (isLeft ? -40 : isRight ? 40 : 0),
                     y: isCompactLayout ? 0 : (isActive ? -20 : 0)
                   }}
@@ -131,14 +133,14 @@ export function ServicesSection() {
                   }}
                   onClick={() => setCurrentService(index)}
                   whileHover={{ 
-                    scale: isActive ? 1.03 : 0.98,
+                    scale: isMobile ? 1 : (isActive ? 1.03 : 0.98),
                     y: isCompactLayout ? 0 : (isActive ? -25 : -5)
                   }}
                 >
                   <Card className={`transition-all duration-300 ${
                     isActive 
-                      ? 'bg-white/95 backdrop-blur-sm border-brand-green-primary/40 rounded-2xl shadow-2xl w-72 sm:w-80' 
-                      : 'bg-white/70 backdrop-blur-sm border-brand-green-primary/20 rounded-xl shadow-lg w-60 sm:w-64'
+                      ? `bg-white/95 backdrop-blur-sm border-brand-green-primary/40 rounded-2xl shadow-2xl ${isMobile ? 'w-80' : 'w-72 sm:w-80'}` 
+                      : `bg-white/70 backdrop-blur-sm border-brand-green-primary/20 rounded-xl shadow-lg ${isMobile ? 'w-72' : 'w-60 sm:w-64'}`
                   }`}>
                     <CardHeader className="text-center pb-4">
                       <motion.div
@@ -212,7 +214,7 @@ export function ServicesSection() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="flex items-center justify-center space-x-6 mb-8">
+        <div className={`flex items-center justify-center space-x-6 mb-8 ${isMobile ? 'mt-6' : ''}`}>
           {/* Previous Button */}
           <motion.button
             onClick={() => setCurrentService((prev) => (prev - 1 + services.length) % services.length)}
@@ -241,7 +243,7 @@ export function ServicesSection() {
                 }`}
                 onClick={() => setCurrentService(index)}
                 whileHover={{ 
-                  scale: 1.3,
+                  scale: isMobile ? 1.1 : 1.3,
                   backgroundColor: index === currentService ? "#003300" : "#417C41",
                   borderColor: "#003300"
                 }}
