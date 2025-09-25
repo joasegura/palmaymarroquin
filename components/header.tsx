@@ -16,7 +16,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+    <header className="sticky top-0 z-50 border-b border-transparent" style={{ backgroundColor: "#003300" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -35,16 +35,16 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#inicio" className="text-foreground hover:text-primary transition-colors">
+            <a href="#inicio" className="text-white/90 hover:text-white transition-colors">
               {t.header.inicio}
             </a>
-            <a href="#servicios" className="text-foreground hover:text-primary transition-colors">
+            <a href="#servicios" className="text-white/90 hover:text-white transition-colors">
               {t.header.servicios}
             </a>
-            <a href="#nosotros" className="text-foreground hover:text-primary transition-colors">
+            <a href="#nosotros" className="text-white/90 hover:text-white transition-colors">
               {t.header.nosotros}
             </a>
-            <a href="#contacto" className="text-foreground hover:text-primary transition-colors">
+            <a href="#contacto" className="text-white/90 hover:text-white transition-colors">
               {t.header.contacto}
             </a>
           </nav>
@@ -92,13 +92,13 @@ export function Header() {
                 />
               </button>
             </div>
-            <Button onClick={handleWhatsAppClick}>{t.header.consultar}</Button>
+            <Button className="bg-white text-[#003300] hover:bg-white/90">{t.header.consultar}</Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-foreground hover:text-primary hover:bg-accent/10 transition-colors"
+            className="md:hidden p-2 rounded-md text-white/90 hover:text-white transition-colors"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -106,18 +106,18 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-white/20">
             <nav className="flex flex-col space-y-4">
-              <a href="#inicio" className="text-foreground hover:text-primary transition-colors">
+              <a href="#inicio" className="text-white/90 hover:text-white transition-colors">
                 {t.header.inicio}
               </a>
-              <a href="#servicios" className="text-foreground hover:text-primary transition-colors">
+              <a href="#servicios" className="text-white/90 hover:text-white transition-colors">
                 {t.header.servicios}
               </a>
-              <a href="#nosotros" className="text-foreground hover:text-primary transition-colors">
+              <a href="#nosotros" className="text-white/90 hover:text-white transition-colors">
                 {t.header.nosotros}
               </a>
-              <a href="#contacto" className="text-foreground hover:text-primary transition-colors">
+              <a href="#contacto" className="text-white/90 hover:text-white transition-colors">
                 {t.header.contacto}
               </a>
               <div className="pt-4 border-t border-border">
@@ -162,7 +162,7 @@ export function Header() {
                     />
                   </button>
                 </div>
-                <Button className="w-full" onClick={handleWhatsAppClick}>{t.header.consultar}</Button>
+                <Button className="w-full bg-white text-[#003300] hover:bg-white/90">{t.header.consultar}</Button>
               </div>
             </nav>
           </div>
