@@ -34,20 +34,39 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const response = await fetch("http://api-nexus.atomsolucionesit.com.ar/api/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: formData.email, // quien llena el form
+          subject: `Consulta de ${formData.name} (${formData.phone})`,
+          message: `
+          Tipo de consulta: ${formData.consultType || "No especificado"}
+          Mensaje: ${formData.message}
+        `,
+        }),
+      });
 
-    console.log("Form submitted:", formData);
-    setIsSubmitting(false);
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      consultType: "",
-      message: "",
-    });
+      const data = await response.json();
+      if (data.success) {
+        alert("¡Mensaje enviado correctamente!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          consultType: "",
+          message: "",
+        });
+      } else {
+        alert("Error al enviar el mensaje: " + data.error);
+      }
+    } catch (error) {
+      alert("No se pudo conectar con el servidor");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
