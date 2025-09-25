@@ -145,7 +145,7 @@ export function WhyChooseUsSection() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center text-center gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -162,6 +162,11 @@ export function WhyChooseUsSection() {
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
+              className={
+                index === reasons.length - 1
+                  ? "md:col-span-2 lg:col-span-1 lg:col-start-2"
+                  : ""
+              }
             >
               <Card className="border-0 shadow-none bg-white/80 backdrop-blur-sm rounded-xl h-full">
                 <CardContent className="p-6 text-center">
