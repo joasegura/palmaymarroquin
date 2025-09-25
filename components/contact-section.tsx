@@ -35,7 +35,7 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://api-nexus.atomsolucionesit.com.ar/api/email/send", {
+      const response = await fetch("https://api-nexus.atomsolucionesit.com.ar/api/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
