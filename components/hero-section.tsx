@@ -1,25 +1,32 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Award } from "lucide-react"
-import { motion } from "framer-motion"
-import { useTranslation } from "@/contexts/translation-context"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { useTranslation } from "@/contexts/translation-context";
 // use public/portada.mp4 to avoid bundling loaders for media
 
 export function HeroSection() {
-  const { t } = useTranslation()
-  
+  const { t } = useTranslation();
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/3772430980', '_blank');
+  };
+
   return (
-    <section id="inicio" className="relative h-screen overflow-hidden py-12 sm:py-24 lg:py-32 flex sm:block items-center">
+    <section
+      id="inicio"
+      className="relative h-screen overflow-hidden py-12 sm:py-24 lg:py-32 flex sm:block items-center"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto text-center h-full flex flex-col items-center justify-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           {/* Badge */}
-          <motion.div 
+          <motion.div
             className="flex items-center justify-center bg-[#003300]/40 px-4 py-2 rounded-xl text-[#FFB91D] w-xl border border-[#FFB91D] text-center text-sm font-medium mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -35,25 +42,26 @@ export function HeroSection() {
             {t.hero.badge}
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white mb-6 text-balance"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             {t.hero.title}
-            <motion.span 
+            <motion.span
               className="text-brand-green-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              {" "}{t.hero.titleHighlight}
+              {" "}
+              {t.hero.titleHighlight}
             </motion.span>
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
+          <motion.p
             className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,9 +76,10 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-brand-green-primary hover:bg-brand-green-dark text-white px-8 py-3 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={handleWhatsAppClick}
             >
               {t.hero.cta}
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -80,41 +89,41 @@ export function HeroSection() {
           {/* Floating elements */}
           <motion.div
             className="absolute top-20 left-10 w-4 h-4 bg-brand-yellow-accent/30 rounded-full"
-            animate={{ 
+            animate={{
               y: [0, -20, 0],
-              opacity: [0.3, 0.7, 0.3]
+              opacity: [0.3, 0.7, 0.3],
             }}
-            transition={{ 
-              duration: 3, 
+            transition={{
+              duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
           <motion.div
             className="absolute top-40 right-20 w-6 h-6 bg-brand-green-primary/20 rounded-full"
-            animate={{ 
+            animate={{
               y: [0, 15, 0],
               x: [0, 10, 0],
-              opacity: [0.2, 0.5, 0.2]
+              opacity: [0.2, 0.5, 0.2],
             }}
-            transition={{ 
-              duration: 4, 
+            transition={{
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 1
+              delay: 1,
             }}
           />
           <motion.div
             className="absolute bottom-40 left-20 w-3 h-3 bg-brand-yellow-accent/40 rounded-full"
-            animate={{ 
+            animate={{
               y: [0, -25, 0],
-              opacity: [0.4, 0.8, 0.4]
+              opacity: [0.4, 0.8, 0.4],
             }}
-            transition={{ 
-              duration: 2.5, 
+            transition={{
+              duration: 2.5,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 0.5
+              delay: 0.5,
             }}
           />
         </motion.div>
@@ -130,9 +139,12 @@ export function HeroSection() {
           preload="metadata"
           className="w-full h-full object-cover"
         >
-          <source src="/portada.mp4" type="video/mp4" />
+          <source
+            src="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/portada.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
     </section>
-  )
+  );
 }
