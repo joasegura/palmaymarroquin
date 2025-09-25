@@ -4,6 +4,7 @@ import { ServicesSection } from "@/components/services-section";
 import { WhyChooseUsSection } from "@/components/why-choose-us-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
+import { Toaster } from "react-hot-toast";
 import WhatsAppBubble from "@/components/whatsapp/WhatsAppBubble";
 
 export default function HomePage() {
