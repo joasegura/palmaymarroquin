@@ -304,7 +304,7 @@ export function ContactSection() {
                         {t.contact.info.address}
                       </div>
                       <div className="text-muted-foreground font-medium">
-                        Colón 1234, <br />
+                        Colón 826, <br />
                         Corrientes, Argentina
                       </div>
                     </div>
@@ -343,14 +343,14 @@ export function ContactSection() {
                   {
                     icon: Phone,
                     text: t.contact.quickActions.call,
-                    action: () => window.open("tel:+543772430980", "_self"),
+                    action: () => window.open("tel:+543772430983", "_self"),
                   },
                   {
                     icon: Mail,
                     text: t.contact.quickActions.whatsapp,
                     action: () =>
                       window.open(
-                        "https://wa.me/5493772430980?text=Hola, me interesa conocer más sobre sus servicios inmobiliarios",
+                        "https://wa.me/5493772430983?text=Hola, me interesa conocer más sobre sus servicios inmobiliarios",
                         "_blank"
                       ),
                   },
@@ -424,7 +424,7 @@ export function ContactSection() {
                               Palma & Marroquín
                             </p>
                             <p className="text-xs text-muted-foreground">
-                              Colón 1234, Corrientes
+                              Colón 826, Corrientes
                             </p>
                           </div>
                           <Button

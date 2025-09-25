@@ -10,17 +10,17 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/3772430980', '_blank');
+    window.open('https://wa.me/3772430983', '_blank');
   };
 
   return (
     <section
       id="inicio"
-      className="relative h-screen overflow-hidden py-12 sm:py-24 lg:py-32 flex sm:block items-center"
+      className="relative h-screen overflow-hidden flex items-center justify-center"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex items-center justify-center">
         <motion.div
-          className="max-w-4xl mx-auto text-center h-full flex flex-col items-center justify-center"
+          className="max-w-4xl text-center flex flex-col items-center justify-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -43,7 +43,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white mb-6 text-balance"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white mb-6 text-balance text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -62,7 +62,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -72,6 +72,7 @@ export function HeroSection() {
 
           {/* CTA Button */}
           <motion.div
+            className="text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}

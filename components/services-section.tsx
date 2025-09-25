@@ -15,7 +15,7 @@ export function ServicesSection() {
   const isMobile = useIsMobile()
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/3772430980', '_blank')
+    window.open('https://wa.me/3772430983', '_blank')
   }
 
   const icons = [Home, Tractor, FileText, Home, Tractor, FileText]
@@ -89,13 +89,13 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="servicios" className="relative bg-brand-beige-secondary pattern-lines py-16 sm:py-24">
+    <section id="servicios" className="relative bg-brand-green-dark pattern-lines py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-foreground mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-white mb-4">
             {t.services.title}
           </h2>
-          <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
+          <p className="font-sans text-lg text-white/90 max-w-2xl mx-auto font-medium">
             {t.services.subtitle}
           </p>
         </div>
@@ -277,7 +277,7 @@ export function ServicesSection() {
       </div>
 
       {/* Background Image */}
-      <div className="absolute inset-0 -z-10 opacity-10">
+      <div className="absolute inset-0 -z-10 opacity-5">
         <img
           src="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/modern-real-estate-office-building-with-glass-faca.jpg"
           alt="Oficina inmobiliaria moderna"

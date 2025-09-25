@@ -50,7 +50,7 @@ export function Footer() {
             <div className="flex space-x-4">
               {[
                 { icon: Facebook, href: "#" },
-                { icon: Instagram, href: "#" },
+                { icon: Instagram, href: "https://www.instagram.com/palmaymarroquin/" },
                 { icon: Linkedin, href: "#" }
               ].map((social, index) => (
                 <motion.a 

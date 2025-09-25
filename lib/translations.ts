@@ -230,9 +230,9 @@ export const translations: Record<string, Translations> = {
       },
       contact: {
         title: "Contacto",
-        address: "Colón 1234, Corrientes",
-        phone: "(011) 2345-6789",
-        email: "info@palma-marroquin.com"
+        address: "Colón 826, Paso de los Libres, Corrientes",
+        phone: "(3772) 43-0983",
+        email: "info@palmamarroquin.com"
       },
       copyright: "© 2024 Palma & Marroquín. Todos los derechos reservados.",
       privacy: "Política de Privacidad",
@@ -372,7 +372,7 @@ export const translations: Record<string, Translations> = {
       },
       contact: {
         title: "Contato",
-        address: "Colón 1234, Corrientes",
+        address: "Colón 826, Corrientes",
         phone: "(011) 2345-6789",
         email: "info@palma-marroquin.com"
       },
