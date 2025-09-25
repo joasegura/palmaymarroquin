@@ -14,6 +14,10 @@ export function ServicesSection() {
   const { t } = useTranslation()
   const isMobile = useIsMobile()
 
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/3772430980', '_blank')
+  }
+
   const icons = [Home, Tractor, FileText, Home, Tractor, FileText]
   
   const services = t.services.items.map((service, index) => ({
@@ -200,6 +204,7 @@ export function ServicesSection() {
                           <Button
                             variant="outline"
                             className="w-full bg-transparent border-brand-green-primary text-brand-green-primary hover:bg-brand-green-primary hover:text-white rounded-xl"
+                            onClick={handleWhatsAppClick}
                           >
                             Más Información
                           </Button>
@@ -274,7 +279,7 @@ export function ServicesSection() {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10 opacity-10">
         <img
-          src="/modern-real-estate-office-building-with-glass-faca.jpg"
+          src="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/modern-real-estate-office-building-with-glass-faca.jpg"
           alt="Oficina inmobiliaria moderna"
           className="w-full h-full object-cover"
         />

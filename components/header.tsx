@@ -5,10 +5,15 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Image from "next/image"
 import { useTranslation } from "@/contexts/translation-context"
+import { ReactCountryFlag } from "react-country-flag"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { language, setLanguage, t } = useTranslation()
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/3772430980', '_blank')
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -18,7 +23,7 @@ export function Header() {
           <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center">
               <Image
-                src="/img/Logotipo.png"
+                src="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/img/Logotipo.png"
                 alt="Palma Marroquín"
                 className="h-14 w-auto object-contain"
                 width={200}
@@ -57,14 +62,15 @@ export function Header() {
                 }`}
                 title="Español"
               >
-                {/* Bandera Argentina */}
-                <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
-                  <div className="w-full h-1/3 bg-blue-600"></div>
-                  <div className="w-full h-1/3 bg-white flex items-center justify-center">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                  </div>
-                  <div className="w-full h-1/3 bg-blue-600"></div>
-                </div>
+                <ReactCountryFlag
+                  countryCode="AR"
+                  svg
+                  style={{
+                    width: '32px',
+                    height: '24px',
+                    borderRadius: '4px'
+                  }}
+                />
               </button>
               <button
                 onClick={() => setLanguage('pt')}
@@ -75,17 +81,18 @@ export function Header() {
                 }`}
                 title="Português"
               >
-                {/* Bandera Brasil */}
-                <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300 relative">
-                  <div className="w-full h-full bg-green-600"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 border-2 border-yellow-400 rounded-full"></div>
-                </div>
+                <ReactCountryFlag
+                  countryCode="BR"
+                  svg
+                  style={{
+                    width: '32px',
+                    height: '24px',
+                    borderRadius: '4px'
+                  }}
+                />
               </button>
             </div>
-            <Button>{t.header.consultar}</Button>
+            <Button onClick={handleWhatsAppClick}>{t.header.consultar}</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -125,14 +132,15 @@ export function Header() {
                     }`}
                     title="Español"
                   >
-                    {/* Bandera Argentina */}
-                    <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300">
-                      <div className="w-full h-1/3 bg-blue-600"></div>
-                      <div className="w-full h-1/3 bg-white flex items-center justify-center">
-                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                      </div>
-                      <div className="w-full h-1/3 bg-blue-600"></div>
-                    </div>
+                    <ReactCountryFlag
+                      countryCode="AR"
+                      svg
+                      style={{
+                        width: '32px',
+                        height: '24px',
+                        borderRadius: '4px'
+                      }}
+                    />
                   </button>
                   <button
                     onClick={() => setLanguage('pt')}
@@ -143,17 +151,18 @@ export function Header() {
                     }`}
                     title="Português"
                   >
-                    {/* Bandera Brasil */}
-                    <div className="w-8 h-6 rounded-sm overflow-hidden border border-gray-300 relative">
-                      <div className="w-full h-full bg-green-600"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                      </div>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 border-2 border-yellow-400 rounded-full"></div>
-                    </div>
+                    <ReactCountryFlag
+                      countryCode="BR"
+                      svg
+                      style={{
+                        width: '32px',
+                        height: '24px',
+                        borderRadius: '4px'
+                      }}
+                    />
                   </button>
                 </div>
-                <Button className="w-full">{t.header.consultar}</Button>
+                <Button className="w-full" onClick={handleWhatsAppClick}>{t.header.consultar}</Button>
               </div>
             </nav>
           </div>
