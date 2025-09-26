@@ -40,7 +40,7 @@ export function WhyChooseUsSection() {
 
       const targets = {
         operations: 500,
-        days: 45,
+        days: 850,
         satisfaction: 98,
         availability: 24,
       };
@@ -206,7 +206,7 @@ export function WhyChooseUsSection() {
         </motion.div>
 
         <motion.div
-          className="mt-16 bg-brand-green-primary/5 rounded-xl p-8 border border-brand-green-primary/20"
+          className="mt-16 bg-[#FFB91D] rounded-xl p-8 border border-black/30"
           variants={statsVariants}
           initial="hidden"
           whileInView="visible"

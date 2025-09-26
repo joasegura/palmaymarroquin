@@ -10,7 +10,7 @@ export function HeroSection() {
   const { t } = useTranslation();
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/3772430983', '_blank');
+    window.open("https://wa.me/3772430983", "_blank");
   };
 
   return (
@@ -43,20 +43,18 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white mb-6 text-balance text-center"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white mb-6 text-balance text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            {t.hero.title}
             <motion.span
-              className="text-brand-green-primary"
+              className="text-brand-green-primary font-sans font-black uppercase"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              {" "}
-              {t.hero.titleHighlight}
+              {t.hero.title} {t.hero.titleHighlight}
             </motion.span>
           </motion.h1>
 

@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description:
     "Especialistas en venta de propiedades, campos y tasaciones profesionales. Experiencia, confianza y transparencia en cada operación.",
   generator: "v0.app",
+  icons: {
+    icon: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/favicon.ico",
+  },
 }
 
 export default function RootLayout({

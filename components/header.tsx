@@ -48,6 +48,8 @@ export function Header() {
     }
   }, [isLanguageDropdownOpen])
 
+  
+
   return (
     <header className="sticky top-0 z-50 border-b border-transparent" style={{ backgroundColor: "#003300" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

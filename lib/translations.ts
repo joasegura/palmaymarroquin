@@ -38,6 +38,11 @@ export interface Translations {
     stats: {
       title: string;
       subtitle: string;
+      items: {
+        number: number;
+        suffix: string;
+        label: string;
+      }[];
     };
   };
   
@@ -68,6 +73,18 @@ export interface Translations {
       email: string;
       hours: string;
     };
+  };
+  
+  // Reviews Section
+  reviews: {
+    title: string;
+    subtitle: string;
+    items: {
+      name: string;
+      location: string;
+      avatar: string;
+      comment: string;
+    }[];
   };
   
   // Footer
@@ -104,6 +121,33 @@ export const translations: Record<string, Translations> = {
       servicios: "Servicios",
       nosotros: "Nosotros",
       contacto: "Contacto"
+    },
+    reviews: {
+      title: "Reseñas de Clientes",
+      subtitle: "Lo que dicen quienes confiaron en nosotros",
+      items: [
+        {
+          name: "María González",
+          location: "Corrientes Capital",
+          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-1.jpg",
+          comment:
+            "Excelente atención y acompañamiento en todo el proceso de venta. Cumplieron con los tiempos y me mantuvieron informada siempre.",
+        },
+        {
+          name: "Jorge Romero",
+          location: "Paso de los Libres",
+          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-2.jpg",
+          comment:
+            "Muy profesionales. Me ayudaron a tasar correctamente mi propiedad y lograron una operación rápida y transparente.",
+        },
+        {
+          name: "Ana y Carlos",
+          location: "Bella Vista",
+          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-3.jpg",
+          comment:
+            "Encontramos nuestra casa ideal. Nos asesoraron en cada paso y resolvieron todas nuestras dudas.",
+        },
+      ],
     },
     hero: {
       badge: "🏆 Inmobiliaria Líder en Corrientes",
@@ -168,7 +212,7 @@ export const translations: Record<string, Translations> = {
         subtitle: "Resultados que respaldan nuestra experiencia",
         items: [
           { number: 500, suffix: "+", label: "Operaciones Exitosas" },
-          { number: 45, suffix: "", label: "Días Promedio de Venta" },
+          { number: 850, suffix: "+", label: "Tasaciones Realizadas" },
           { number: 98, suffix: "%", label: "Satisfacción del Cliente" },
           { number: 24, suffix: "/7", label: "Atención Disponible" }
         ]
@@ -247,6 +291,33 @@ export const translations: Record<string, Translations> = {
       nosotros: "Sobre Nós",
       contacto: "Contato"
     },
+    reviews: {
+      title: "Depoimentos de Clientes",
+      subtitle: "O que dizem aqueles que confiaram em nós",
+      items: [
+        {
+          name: "Maria Gonçalves",
+          location: "Corrientes Capital",
+          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-1.jpg",
+          comment:
+            "Excelente atendimento e acompanhamento em todo o processo de venda. Cumpriram os prazos e me mantiveram informada sempre.",
+        },
+        {
+          name: "Jorge Romero",
+          location: "Paso de los Libres",
+          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-2.jpg",
+          comment:
+            "Muito profissionais. Ajudaram a avaliar corretamente meu imóvel e realizaram uma operação rápida e transparente.",
+        },
+        {
+          name: "Ana e Carlos",
+          location: "Bella Vista",
+          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-3.jpg",
+          comment:
+            "Encontramos nossa casa ideal. Nos orientaram em cada passo e tiraram todas as nossas dúvidas.",
+        },
+      ],
+    },
     hero: {
       badge: "🏆 Imobiliária Líder em Corrientes",
       title: "Encontre sua",
@@ -310,7 +381,7 @@ export const translations: Record<string, Translations> = {
         subtitle: "Resultados que respaldam nossa experiência",
         items: [
           { number: 500, suffix: "+", label: "Operações Bem-sucedidas" },
-          { number: 45, suffix: "", label: "Dias Médios de Venda" },
+          { number: 850, suffix: "+", label: "Avaliações Realizadas" },
           { number: 98, suffix: "%", label: "Satisfação do Cliente" },
           { number: 24, suffix: "/7", label: "Atendimento Disponível" }
         ]
