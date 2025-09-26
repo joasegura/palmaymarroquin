@@ -5,6 +5,7 @@ import { WhyChooseUsSection } from "@/components/why-choose-us-section";
 import { ReviewsSection } from "@/components/reviews-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
+import { Toaster } from "react-hot-toast";
 import WhatsAppBubble from "@/components/whatsapp/WhatsAppBubble";
 
 export default function HomePage() {

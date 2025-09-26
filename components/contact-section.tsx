@@ -17,6 +17,7 @@ import {
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/contexts/translation-context";
+import toast from "react-hot-toast";
 
 export function ContactSection() {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://api-nexus.atomsolucionesit.com.ar/api/email/send", {
+      const response = await fetch("http://localhost:3000/api/email/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -50,7 +51,7 @@ export function ContactSection() {
 
       const data = await response.json();
       if (data.success) {
-        alert("¡Mensaje enviado correctamente!");
+        toast.success("¡Mensaje enviado correctamente!");
         setFormData({
           name: "",
           email: "",
@@ -59,10 +60,10 @@ export function ContactSection() {
           message: "",
         });
       } else {
-        alert("Error al enviar el mensaje: " + data.error);
+        toast.error("Error al enviar el mensaje: " + data.error);
       }
     } catch (error) {
-      alert("No se pudo conectar con el servidor");
+      toast.error("No se pudo conectar con el servidor");
       console.error(error);
     } finally {
       setIsSubmitting(false);
