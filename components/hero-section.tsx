@@ -18,7 +18,7 @@ export function HeroSection() {
       id="inicio"
       className="relative h-screen overflow-hidden flex items-center justify-center"
     >
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex items-center justify-center">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 z-10 h-full flex items-center justify-center">
         <motion.div
           className="max-w-4xl text-center flex flex-col items-center justify-center"
           initial={{ opacity: 0, y: 50 }}
@@ -27,7 +27,7 @@ export function HeroSection() {
         >
           {/* Badge */}
           <motion.div
-            className="flex items-center justify-center bg-[#003300]/40 px-4 py-2 rounded-xl text-[#FFB91D] w-xl border border-[#FFB91D] text-center text-sm font-medium mb-6"
+            className="flex items-center justify-center bg-[#003300]/40 px-4 py-2 rounded-xl text-[#FFB91D] w-full md:w-md border border-[#FFB91D] text-center text-sm font-medium mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -43,7 +43,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl text-white mb-6 text-balance text-center"
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white mb-6 text-balance text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -60,7 +60,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed text-center"
+            className="text-base sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -77,7 +77,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="bg-brand-green-primary hover:bg-brand-green-dark text-white px-8 py-3 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-brand-green-primary cursor-pointer hover:bg-brand-green-dark text-white px-8 py-3 text-lg font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-green-200 hover:text-gray-600"
               onClick={handleWhatsAppClick}
             >
               {t.hero.cta}
@@ -127,6 +127,12 @@ export function HeroSection() {
           />
         </motion.div>
       </div>
+
+      {/* Contrast overlay for readability (especially mobile) */}
+      <div className="absolute inset-0 z-[1] bg-black/40" />
+
+      {/* Contrast overlay for readability (higher on mobile) */}
+      <div className="absolute inset-0 z-[1] bg-black/55 md:bg-black/40" />
 
       {/* Background Video */}
       <div className="absolute inset-0 z-0 h-full w-full">

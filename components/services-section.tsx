@@ -31,24 +31,14 @@ export function ServicesSection() {
     icon: iconComponents[index % iconComponents.length],
     title: service.title,
     description: service.description,
-    features: [
-      "Evaluación de mercado precisa",
-      "Marketing digital especializado",
-      "Acompañamiento integral",
-      "Asesoramiento legal y técnico",
-    ],
+    features: service.features,
   }));
 
   // Build services data for the external carousel
   const servicesForCarousel = t.services.items.map((service, index) => ({
     title: service.title,
     description: service.description,
-    features: [
-      "Evaluación de mercado precisa",
-      "Marketing digital especializado",
-      "Acompañamiento integral",
-      "Asesoramiento legal y técnico",
-    ],
+    features: service.features,
     icon: React.createElement(iconComponents[index % iconComponents.length], {
       className: "h-8 w-8 text-brand-green-primary",
     }),

@@ -7,7 +7,7 @@ export interface Translations {
     nosotros: string;
     contacto: string;
   };
-  
+
   // Hero Section
   hero: {
     badge: string;
@@ -16,7 +16,7 @@ export interface Translations {
     subtitle: string;
     cta: string;
   };
-  
+
   // Services Section
   services: {
     title: string;
@@ -24,9 +24,10 @@ export interface Translations {
     items: {
       title: string;
       description: string;
+      features: string[];
     }[];
   };
-  
+
   // Why Choose Us Section
   whyChooseUs: {
     title: string;
@@ -45,7 +46,7 @@ export interface Translations {
       }[];
     };
   };
-  
+
   // Contact Section
   contact: {
     title: string;
@@ -74,7 +75,7 @@ export interface Translations {
       hours: string;
     };
   };
-  
+
   // Reviews Section
   reviews: {
     title: string;
@@ -86,7 +87,7 @@ export interface Translations {
       comment: string;
     }[];
   };
-  
+
   // Footer
   footer: {
     company: {
@@ -120,7 +121,7 @@ export const translations: Record<string, Translations> = {
       inicio: "Inicio",
       servicios: "Servicios",
       nosotros: "Nosotros",
-      contacto: "Contacto"
+      contacto: "Contacto",
     },
     reviews: {
       title: "Reseñas de Clientes",
@@ -129,21 +130,24 @@ export const translations: Record<string, Translations> = {
         {
           name: "María González",
           location: "Corrientes Capital",
-          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-1.jpg",
+          avatar:
+            "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-1.jpg",
           comment:
             "Excelente atención y acompañamiento en todo el proceso de venta. Cumplieron con los tiempos y me mantuvieron informada siempre.",
         },
         {
           name: "Jorge Romero",
           location: "Paso de los Libres",
-          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-2.jpg",
+          avatar:
+            "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-2.jpg",
           comment:
             "Muy profesionales. Me ayudaron a tasar correctamente mi propiedad y lograron una operación rápida y transparente.",
         },
         {
           name: "Ana y Carlos",
           location: "Bella Vista",
-          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-3.jpg",
+          avatar:
+            "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-3.jpg",
           comment:
             "Encontramos nuestra casa ideal. Nos asesoraron en cada paso y resolvieron todas nuestras dudas.",
         },
@@ -153,59 +157,89 @@ export const translations: Record<string, Translations> = {
       badge: "🏆 Inmobiliaria Líder en Corrientes",
       title: "Encuentra tu",
       titleHighlight: "propiedad ideal",
-      subtitle: "Con más de 15 años de experiencia, te ayudamos a encontrar la propiedad perfecta en Corrientes. Compra, vende o alquila con confianza.",
-      cta: "Consultar Gratis"
+      subtitle:
+        "Con más de 15 años de experiencia, te ayudamos a encontrar la propiedad perfecta en Corrientes. Compra, vende o alquila con confianza.",
+      cta: "Consultar Gratis",
     },
     services: {
       title: "Nuestros Servicios",
-      subtitle: "Ofrecemos soluciones integrales para todas tus necesidades inmobiliarias",
+      subtitle:
+        "Ofrecemos soluciones integrales para todas tus necesidades inmobiliarias",
       items: [
         {
           title: "Venta de Propiedades",
-          description: "Casas, departamentos y terrenos en las mejores ubicaciones de Corrientes"
+          description:
+            "Casas, departamentos y terrenos en las mejores ubicaciones de Corrientes",
+          features: [
+            "Asesoramiento personalizado en la compra/venta",
+            "Amplia cartera de propiedades exclusivas",
+            "Gestión completa de la documentación",
+            "Promoción en portales inmobiliarios y redes sociales",
+          ],
         },
         {
           title: "Alquileres",
-          description: "Encuentra el hogar perfecto para ti y tu familia con nuestras opciones de alquiler"
+          description:
+            "Encuentra el hogar perfecto para ti y tu familia con nuestras opciones de alquiler",
+          features: [
+            "Contratos transparentes y seguros",
+            "Variedad de opciones en distintas zonas",
+            "Soporte durante todo el período de alquiler",
+            "Gestión rápida y eficiente de trámites",
+          ],
         },
         {
           title: "Tasaciones",
-          description: "Valuaciones profesionales y precisas para tu propiedad"
-        }
-      ]
+          description: "Valuaciones profesionales y precisas para tu propiedad",
+          features: [
+            "Análisis detallado del mercado inmobiliario",
+            "Tasaciones confiables y certificadas",
+            "Informes claros y fáciles de interpretar",
+            "Rapidez en la entrega de resultados",
+          ],
+        },
+      ],
     },
+
     whyChooseUs: {
       title: "¿Por qué elegirnos?",
       subtitle: "Somos la opción confiable para tus operaciones inmobiliarias",
       reasons: [
         {
           title: "Experiencia Comprobada",
-          description: "Más de 15 años ayudando a familias a encontrar su hogar ideal"
+          description:
+            "Más de 15 años ayudando a familias a encontrar su hogar ideal",
         },
         {
           title: "Conocimiento Local",
-          description: "Conocemos cada rincón de Corrientes y sus mejores oportunidades"
+          description:
+            "Conocemos cada rincón de Corrientes y sus mejores oportunidades",
         },
         {
           title: "Atención Personalizada",
-          description: "Cada cliente recibe un servicio único adaptado a sus necesidades"
+          description:
+            "Cada cliente recibe un servicio único adaptado a sus necesidades",
         },
         {
           title: "Transparencia Total",
-          description: "Procesos claros y honestos en cada operación que realizamos"
+          description:
+            "Procesos claros y honestos en cada operación que realizamos",
         },
         {
           title: "Asesoramiento Legal",
-          description: "Te acompañamos en todos los trámites legales de tu operación inmobiliaria"
+          description:
+            "Te acompañamos en todos los trámites legales de tu operación inmobiliaria",
         },
         {
           title: "Inversiones",
-          description: "Oportunidades de inversión inmobiliaria con excelente rentabilidad"
+          description:
+            "Oportunidades de inversión inmobiliaria con excelente rentabilidad",
         },
         {
           title: "Administración",
-          description: "Gestionamos tu propiedad para maximizar su valor y rentabilidad"
-        }
+          description:
+            "Gestionamos tu propiedad para maximizar su valor y rentabilidad",
+        },
       ],
       stats: {
         title: "Nuestros Números",
@@ -214,20 +248,21 @@ export const translations: Record<string, Translations> = {
           { number: 500, suffix: "+", label: "Operaciones Exitosas" },
           { number: 850, suffix: "+", label: "Tasaciones Realizadas" },
           { number: 98, suffix: "%", label: "Satisfacción del Cliente" },
-          { number: 24, suffix: "/7", label: "Atención Disponible" }
-        ]
-      }
+          { number: 24, suffix: "/7", label: "Atención Disponible" },
+        ],
+      },
     },
     contact: {
       title: "Empezá tu Proyecto Inmobiliario Hoy",
-      subtitle: "Contactanos para una consulta gratuita y descubrí cómo podemos ayudarte",
+      subtitle:
+        "Contactanos para una consulta gratuita y descubrí cómo podemos ayudarte",
       form: {
         name: "Nombre y Apellido",
         email: "Email",
         phone: "Teléfono",
         message: "Mensaje",
         submit: "Consultá Gratis Ahora",
-        loading: "Enviando..."
+        loading: "Enviando...",
       },
       quickActions: {
         title: "Acciones Rápidas",
@@ -235,20 +270,21 @@ export const translations: Record<string, Translations> = {
         whatsapp: "Enviar WhatsApp",
         location: "Nuestra Ubicación",
         hideMap: "Ocultar Mapa",
-        openMaps: "Abrir en Google Maps"
+        openMaps: "Abrir en Google Maps",
       },
       info: {
         title: "Información de Contacto",
         address: "Oficina",
         phone: "Teléfono",
         email: "Email",
-        hours: "Horarios"
-      }
+        hours: "Horarios",
+      },
     },
     footer: {
       company: {
         title: "Palma & Marroquín",
-        description: "Tu socio inmobiliario de confianza en Corrientes desde 2008"
+        description:
+          "Tu socio inmobiliario de confianza en Corrientes desde 2008",
       },
       services: {
         title: "Servicios",
@@ -258,8 +294,8 @@ export const translations: Record<string, Translations> = {
           "Tasaciones",
           "Asesoramiento Legal",
           "Inversiones",
-          "Administración"
-        ]
+          "Administración",
+        ],
       },
       companyLinks: {
         title: "Empresa",
@@ -269,19 +305,19 @@ export const translations: Record<string, Translations> = {
           "Testimonios",
           "Blog",
           "Carreras",
-          "Contacto"
-        ]
+          "Contacto",
+        ],
       },
       contact: {
         title: "Contacto",
         address: "Colón 826, Paso de los Libres, Corrientes",
         phone: "(3772) 43-0983",
-        email: "info@palmamarroquin.com"
+        email: "info@palmamarroquin.com",
       },
       copyright: "© 2024 Palma & Marroquín. Todos los derechos reservados.",
       privacy: "Política de Privacidad",
-      terms: "Términos y Condiciones"
-    }
+      terms: "Términos y Condiciones",
+    },
   },
   pt: {
     header: {
@@ -289,7 +325,7 @@ export const translations: Record<string, Translations> = {
       inicio: "Início",
       servicios: "Serviços",
       nosotros: "Sobre Nós",
-      contacto: "Contato"
+      contacto: "Contato",
     },
     reviews: {
       title: "Depoimentos de Clientes",
@@ -298,21 +334,24 @@ export const translations: Record<string, Translations> = {
         {
           name: "Maria Gonçalves",
           location: "Corrientes Capital",
-          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-1.jpg",
+          avatar:
+            "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-1.jpg",
           comment:
             "Excelente atendimento e acompanhamento em todo o processo de venda. Cumpriram os prazos e me mantiveram informada sempre.",
         },
         {
           name: "Jorge Romero",
           location: "Paso de los Libres",
-          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-2.jpg",
+          avatar:
+            "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-2.jpg",
           comment:
             "Muito profissionais. Ajudaram a avaliar corretamente meu imóvel e realizaram uma operação rápida e transparente.",
         },
         {
           name: "Ana e Carlos",
           location: "Bella Vista",
-          avatar: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-3.jpg",
+          avatar:
+            "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/avatars/avatar-3.jpg",
           comment:
             "Encontramos nossa casa ideal. Nos orientaram em cada passo e tiraram todas as nossas dúvidas.",
         },
@@ -322,26 +361,49 @@ export const translations: Record<string, Translations> = {
       badge: "🏆 Imobiliária Líder em Corrientes",
       title: "Encontre sua",
       titleHighlight: "propriedade ideal",
-      subtitle: "Com mais de 15 anos de experiência, ajudamos você a encontrar a propriedade perfeita em Corrientes. Compre, venda ou alugue com confiança.",
-      cta: "Consultar Grátis"
+      subtitle:
+        "Com mais de 15 anos de experiência, ajudamos você a encontrar a propriedade perfeita em Corrientes. Compre, venda ou alugue com confiança.",
+      cta: "Consultar Grátis",
     },
     services: {
       title: "Nossos Serviços",
-      subtitle: "Oferecemos soluções integrais para todas as suas necessidades imobiliárias",
+      subtitle:
+        "Oferecemos soluções integrais para todas as suas necessidades imobiliárias",
       items: [
         {
           title: "Venda de Propriedades",
-          description: "Casas, apartamentos e terrenos nas melhores localizações de Corrientes"
+          description:
+            "Casas, apartamentos e terrenos nas melhores localizações de Corrientes",
+          features: [
+            "Assessoria personalizada na compra e venda",
+            "Ampla carteira de imóveis exclusivos",
+            "Gestão completa da documentação",
+            "Divulgação em portais imobiliários e redes sociais",
+          ],
         },
         {
           title: "Aluguéis",
-          description: "Encontre o lar perfeito para você e sua família com nossas opções de aluguel"
+          description:
+            "Encontre o lar perfeito para você e sua família com nossas opções de aluguel",
+          features: [
+            "Contratos transparentes e seguros",
+            "Variedade de opções em diferentes regiões",
+            "Suporte durante todo o período de locação",
+            "Gestão rápida e eficiente de trâmites",
+          ],
         },
         {
           title: "Avaliações",
-          description: "Avaliações profissionais e precisas para sua propriedade"
-        }
-      ]
+          description:
+            "Avaliações profissionais e precisas para sua propriedade",
+          features: [
+            "Análise detalhada do mercado imobiliário",
+            "Laudos confiáveis e certificados",
+            "Relatórios claros e de fácil compreensão",
+            "Rapidez na entrega dos resultados",
+          ],
+        },
+      ],
     },
     whyChooseUs: {
       title: "Por que nos escolher?",
@@ -349,32 +411,39 @@ export const translations: Record<string, Translations> = {
       reasons: [
         {
           title: "Experiência Comprovada",
-          description: "Mais de 15 anos ajudando famílias a encontrar seu lar ideal"
+          description:
+            "Mais de 15 anos ajudando famílias a encontrar seu lar ideal",
         },
         {
           title: "Conhecimento Local",
-          description: "Conhecemos cada canto de Corrientes e suas melhores oportunidades"
+          description:
+            "Conhecemos cada canto de Corrientes e suas melhores oportunidades",
         },
         {
           title: "Atendimento Personalizado",
-          description: "Cada cliente recebe um serviço único adaptado às suas necessidades"
+          description:
+            "Cada cliente recebe um serviço único adaptado às suas necessidades",
         },
         {
           title: "Transparência Total",
-          description: "Processos claros e honestos em cada operação que realizamos"
+          description:
+            "Processos claros e honestos em cada operação que realizamos",
         },
         {
           title: "Assessoria Jurídica",
-          description: "Acompanhamos você em todos os trâmites legais da sua operação imobiliária"
+          description:
+            "Acompanhamos você em todos os trâmites legais da sua operação imobiliária",
         },
         {
           title: "Investimentos",
-          description: "Oportunidades de investimento imobiliário com excelente rentabilidade"
+          description:
+            "Oportunidades de investimento imobiliário com excelente rentabilidade",
         },
         {
           title: "Administração",
-          description: "Gerenciamos sua propriedade para maximizar seu valor e rentabilidade"
-        }
+          description:
+            "Gerenciamos sua propriedade para maximizar seu valor e rentabilidade",
+        },
       ],
       stats: {
         title: "Nossos Números",
@@ -383,20 +452,21 @@ export const translations: Record<string, Translations> = {
           { number: 500, suffix: "+", label: "Operações Bem-sucedidas" },
           { number: 850, suffix: "+", label: "Avaliações Realizadas" },
           { number: 98, suffix: "%", label: "Satisfação do Cliente" },
-          { number: 24, suffix: "/7", label: "Atendimento Disponível" }
-        ]
-      }
+          { number: 24, suffix: "/7", label: "Atendimento Disponível" },
+        ],
+      },
     },
     contact: {
       title: "Comece Seu Projeto Imobiliário Hoje",
-      subtitle: "Entre em contato conosco para uma consulta gratuita e descubra como podemos ajudá-lo",
+      subtitle:
+        "Entre em contato conosco para uma consulta gratuita e descubra como podemos ajudá-lo",
       form: {
         name: "Nome e Sobrenome",
         email: "E-mail",
         phone: "Telefone",
         message: "Mensagem",
         submit: "Consultar Grátis Agora",
-        loading: "Enviando..."
+        loading: "Enviando...",
       },
       quickActions: {
         title: "Ações Rápidas",
@@ -404,20 +474,21 @@ export const translations: Record<string, Translations> = {
         whatsapp: "Enviar WhatsApp",
         location: "Nossa Localização",
         hideMap: "Ocultar Mapa",
-        openMaps: "Abrir no Google Maps"
+        openMaps: "Abrir no Google Maps",
       },
       info: {
         title: "Informações de Contato",
         address: "Escritório",
         phone: "Telefone",
         email: "E-mail",
-        hours: "Horários"
-      }
+        hours: "Horários",
+      },
     },
     footer: {
       company: {
         title: "Palma & Marroquín",
-        description: "Seu parceiro imobiliário de confiança em Corrientes desde 2008"
+        description:
+          "Seu parceiro imobiliário de confiança em Corrientes desde 2008",
       },
       services: {
         title: "Serviços",
@@ -427,8 +498,8 @@ export const translations: Record<string, Translations> = {
           "Avaliações",
           "Assessoria Jurídica",
           "Investimentos",
-          "Administração"
-        ]
+          "Administração",
+        ],
       },
       companyLinks: {
         title: "Empresa",
@@ -438,19 +509,18 @@ export const translations: Record<string, Translations> = {
           "Depoimentos",
           "Blog",
           "Carreiras",
-          "Contato"
-        ]
+          "Contato",
+        ],
       },
       contact: {
         title: "Contato",
         address: "Colón 826, Corrientes",
         phone: "(011) 2345-6789",
-        email: "info@palma-marroquin.com"
+        email: "info@palma-marroquin.com",
       },
       copyright: "© 2024 Palma & Marroquín. Todos os direitos reservados.",
       privacy: "Política de Privacidade",
-      terms: "Termos e Condições"
-    }
-  }
+      terms: "Termos e Condições",
+    },
+  },
 };
-
