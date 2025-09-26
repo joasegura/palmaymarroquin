@@ -4,6 +4,7 @@ import { DM_Sans, DM_Serif_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { TranslationProvider } from "@/contexts/translation-context"
+import { Toaster } from "react-hot-toast"
 import "./globals.css"
 
 const dmSans = DM_Sans({
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className={`font-sans ${dmSans.variable} ${dmSerifDisplay.variable}`}>
         <TranslationProvider>
           <Suspense fallback={null}>{children}</Suspense>
+          <Toaster position="top-right" />
           <Analytics />
         </TranslationProvider>
       </body>
