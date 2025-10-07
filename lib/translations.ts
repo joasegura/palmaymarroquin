@@ -178,14 +178,14 @@ export const translations: Record<string, Translations> = {
           ],
         },
         {
-          title: "Alquileres",
+          title: "Divisiones",
           description:
-            "Encuentra el hogar perfecto para ti y tu familia con nuestras opciones de alquiler",
+            "Organiza y valoriza tu propiedad rural con nuestras soluciones de división de terrenos.",
           features: [
-            "Contratos transparentes y seguros",
-            "Variedad de opciones en distintas zonas",
-            "Soporte durante todo el período de alquiler",
-            "Gestión rápida y eficiente de trámites",
+            "Asesoramiento técnico y legal para la correcta subdivisión de parcelas",
+            "Planificación según la normativa vigente y las características del suelo",
+            "Acompañamiento en trámites catastrales y registrales",
+            "Soluciones eficientes para optimizar el uso y valor de cada fracción",
           ],
         },
         {
@@ -382,14 +382,14 @@ export const translations: Record<string, Translations> = {
           ],
         },
         {
-          title: "Aluguéis",
+          title: "Divisões",
           description:
-            "Encontre o lar perfeito para você e sua família com nossas opções de aluguel",
+            "Organize e valorize sua propriedade rural com nossas soluções de divisão de terrenos.",
           features: [
-            "Contratos transparentes e seguros",
-            "Variedade de opções em diferentes regiões",
-            "Suporte durante todo o período de locação",
-            "Gestão rápida e eficiente de trâmites",
+            "Assessoria técnica e jurídica para a correta subdivisão de lotes",
+            "Planejamento conforme a legislação vigente e as características do solo",
+            "Acompanhamento em processos cadastrais e de registro",
+            "Soluções eficientes para otimizar o uso e o valor de cada fração",
           ],
         },
         {
