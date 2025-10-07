@@ -1,23 +1,25 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { DM_Sans, DM_Serif_Display } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { Suspense } from "react"
-import { TranslationProvider } from "@/contexts/translation-context"
-import { Toaster } from "react-hot-toast"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { Suspense } from "react";
+import { TranslationProvider } from "@/contexts/translation-context";
+import { Toaster } from "react-hot-toast";
+import { VideoOptimizer } from "@/components/video-optimizer";
+import { GlobalLoader } from "@/components/global-loader";
+import "./globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   weight: ["400", "500", "600", "700"],
-})
+});
 
 const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
   variable: "--font-dm-serif-display",
   weight: ["400"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Palma & Marroquín",
@@ -27,22 +29,36 @@ export const metadata: Metadata = {
   icons: {
     icon: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="es">
-      <body className={`font-sans ${dmSans.variable} ${dmSerifDisplay.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          href="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/portada.mp4"
+          as="video"
+          type="video/mp4"
+          crossOrigin="anonymous"
+        />
+      </head>
+
+      <body
+        className={`font-sans ${dmSans.variable} ${dmSerifDisplay.variable}`}
+      >
         <TranslationProvider>
           <Suspense fallback={null}>{children}</Suspense>
           <Toaster position="top-right" />
           <Analytics />
+          <VideoOptimizer />
+          <GlobalLoader />
         </TranslationProvider>
       </body>
     </html>
-  )
+  );
 }

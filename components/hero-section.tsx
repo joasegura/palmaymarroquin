@@ -4,15 +4,56 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/contexts/translation-context";
-// use public/portada.mp4 to avoid bundling loaders for media
+import { useEffect, useRef, useState } from "react";
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Precargar el video para mejor performance en visitas futuras
+    const preloadVideo = () => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "video";
+      link.href =
+        "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/portada.mp4";
+      link.crossOrigin = "anonymous";
+      document.head.appendChild(link);
+    };
+
+    preloadVideo();
+  }, []);
+
+  const handleVideoLoad = () => {
+    console.log("🎥 Video cargado correctamente");
+    setVideoLoaded(true);
+    window.dispatchEvent(new Event("videoReady")); // 🔥 Notifica al loader global
+  };
+
+  const handleVideoError = (e: any) => {
+    console.error("❌ Error en video:", e);
+    setVideoLoaded(true);
+    window.dispatchEvent(new Event("videoError")); // 🔥 También notifica
+  };
 
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/3772430983", "_blank");
   };
 
+  if (!mounted) {
+    return (
+      <section className="relative h-screen overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
+          <div className="text-white text-lg">Cargando...</div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section
       id="inicio"
@@ -128,27 +169,35 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Contrast overlay for readability (especially mobile) */}
-      <div className="absolute inset-0 z-[1] bg-black/40" />
-
-      {/* Contrast overlay for readability (higher on mobile) */}
+      {/* Contrast overlay */}
       <div className="absolute inset-0 z-[1] bg-black/55 md:bg-black/40" />
 
       {/* Background Video */}
       <div className="absolute inset-0 z-0 h-full w-full">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
+          poster="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/portada-poster.jpg"
           className="w-full h-full object-cover"
+          onLoadedData={handleVideoLoad}
+          onError={handleVideoError}
+          crossOrigin="anonymous"
         >
           <source
             src="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/portada.mp4"
             type="video/mp4"
           />
         </video>
+
+        {!videoLoaded && (
+          <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
+            <div className="text-white text-lg">Cargando video...</div>
+          </div>
+        )}
       </div>
     </section>
   );

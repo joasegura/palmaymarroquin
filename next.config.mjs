@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Elimina la sección de headers para sw.js
 }
 
-export default nextConfig
+export default nextConfig;

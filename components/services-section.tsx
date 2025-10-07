@@ -95,9 +95,9 @@ export function ServicesSection() {
   return (
     <section
       id="servicios"
-      className="relative h-screen bg-brand-green-dark pattern-lines py-16 sm:py-24"
+      className="relative h-screen bg-brand-green-dark pattern-lines"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto p-6 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-white mb-4">
             {t.services.title}

@@ -19,7 +19,7 @@ export function WhyChooseUsSection() {
 
   const reasonIcons = [
     "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Manos de acuerdo.png",
-    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Pin Ubic.png",
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/cair.jpg",
     "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Peón.png",
     "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Tractor.png",
     "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Casa.png",
@@ -175,7 +175,7 @@ export function WhyChooseUsSection() {
                     whileHover={{
                       scale: 1.1,
                       rotate: 5,
-                      backgroundColor: "rgba(65, 124, 65, 0.2)",
+                      backgroundColor: "rgba(255, 255, 255, 0.2)",
                     }}
                     transition={{ duration: 0.2 }}
                   >

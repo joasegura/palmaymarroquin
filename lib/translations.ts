@@ -236,9 +236,8 @@ export const translations: Record<string, Translations> = {
             "Oportunidades de inversión inmobiliaria con excelente rentabilidad",
         },
         {
-          title: "Administración",
-          description:
-            "Gestionamos tu propiedad para maximizar su valor y rentabilidad",
+          title: "Socios Fundadores",
+          description: "Cámara argentina inmobiliaria rural",
         },
       ],
       stats: {
@@ -440,9 +439,8 @@ export const translations: Record<string, Translations> = {
             "Oportunidades de investimento imobiliário com excelente rentabilidade",
         },
         {
-          title: "Administração",
-          description:
-            "Gerenciamos sua propriedade para maximizar seu valor e rentabilidade",
+          title: "Socios Fundadores",
+          description: "Cámara Argentina Inmobiliaria Rural",
         },
       ],
       stats: {
