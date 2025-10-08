@@ -321,7 +321,7 @@ export function WhyChooseUsSection() {
           </motion.div>
         </motion.div>
       </div>
-
+      
       {/* Background Image */}
       <div className="absolute inset-0 -z-10 opacity-10">
         <img
