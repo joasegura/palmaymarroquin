@@ -37,23 +37,27 @@ export function ContactSection() {
 
     try {
       const response = await fetch(
-        "https://api-nexus.atomsolucionesit.com.ar/api/email/send",
+        "https://api-nexus.atomsolucionesit.com.ar/api/email/contact", // Cambié la URL al endpoint correcto
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            from: formData.email, // quien llena el form
-            subject: `Consulta de ${formData.name} (${formData.phone})`,
-            message: `
-          Tipo de consulta: ${formData.consultType || "No especificado"}
-          Mensaje: ${formData.message}
-        `,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.consultType, // Cambié 'consultType' por 'service' para que coincida con el backend
+            message: formData.message,
           }),
         }
       );
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
-      if (data.success) {
+
+      if (data.success || data.message === "Email sent successfully") {
         toast.success("¡Mensaje enviado correctamente!");
         setFormData({
           name: "",
@@ -63,11 +67,11 @@ export function ContactSection() {
           message: "",
         });
       } else {
-        toast.error("Error al enviar el mensaje: " + data.error);
+        toast.error("Error al enviar el mensaje");
       }
     } catch (error) {
+      console.error("Error completo:", error);
       toast.error("No se pudo conectar con el servidor");
-      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -76,7 +80,6 @@ export function ContactSection() {
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
