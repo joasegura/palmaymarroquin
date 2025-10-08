@@ -18,17 +18,22 @@ export function WhyChooseUsSection() {
   });
 
   const reasonIcons = [
-    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Manos de acuerdo.png",
-    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/cair.jpg",
-    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Peón.png",
-    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Tractor.png",
-    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Casa.png",
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Manos de acuerdo.png", // Experiencia Comprobada
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Pin Ubic.png", // Conocimiento Local
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Tel.png", // Atención Personalizada
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Venta-Precio.png", // Transparencia Total
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Web.png", // Asesoramiento Legal
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/iconos/Icono_Maíz.png", // Inversiones
+    "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/cair.jpg", // Socios Fundadores
   ];
 
   const reasons = t.whyChooseUs.reasons.map((reason, index) => ({
     icon: reasonIcons[index % reasonIcons.length],
     title: reason.title,
     description: reason.description,
+    isFounder:
+      reason.title === "Socios Fundadores" ||
+      reason.title === "Socios Fundadores", // Español y Portugués
   }));
 
   // Animate numbers when stats become visible
@@ -79,6 +84,22 @@ export function WhyChooseUsSection() {
   };
 
   const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.9,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
+
+  const founderCardVariants = {
     hidden: {
       opacity: 0,
       y: 50,
@@ -163,57 +184,103 @@ export function WhyChooseUsSection() {
                 transition: { duration: 0.2 },
               }}
               className={
-                index === reasons.length - 1
-                  ? "md:col-span-2 lg:col-span-1 lg:col-start-2"
-                  : ""
+                reason.isFounder
+                  ? "h-full md:col-start-2 lg:col-start-2 flex flex-col items-center"
+                  : "h-full"
               }
             >
-              <Card className="border-0 shadow-none bg-white/80 backdrop-blur-sm rounded-xl h-full">
-                <CardContent className="p-6 text-center">
-                  <motion.div
-                    className="mx-auto w-16 h-16 bg-brand-green-primary/10 rounded-xl flex items-center justify-center mb-6"
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 5,
-                      backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Image
-                      src={reason.icon}
-                      alt={reason.title}
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                    />
-                  </motion.div>
+              <Card
+                className={
+                  reason.isFounder
+                    ? "border-2 border-gray-200 shadow-lg bg-white rounded-xl h-64 w-64 relative overflow-hidden mx-auto" // Redondo y tamaño fijo
+                    : "border-0 shadow-none bg-white/80 backdrop-blur-sm rounded-xl h-full"
+                }
+              >
+                <CardContent
+                  className={
+                    reason.isFounder
+                      ? "p-6 h-full flex items-center justify-center"
+                      : "p-6 text-center h-full flex flex-col"
+                  }
+                >
+                  {reason.isFounder ? (
+                    // Card redonda para Socios Fundadores
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <Image
+                        src={reason.icon}
+                        alt="Cámara Argentina Inmobiliaria Rural"
+                        fill
+                        className="object-contain p-6" // Padding para que no toque los bordes
+                      />
+                    </div>
+                  ) : (
+                    // Cards normales para las demás razones
+                    <>
+                      <motion.div
+                        className="mx-auto w-16 h-16 bg-brand-green-primary/10 rounded-xl flex items-center justify-center mb-6"
+                        whileHover={{
+                          scale: 1.1,
+                          transition: { duration: 0.2 },
+                        }}
+                      >
+                        <Image
+                          src={reason.icon}
+                          alt={reason.title}
+                          width={48}
+                          height={48}
+                          className="object-contain"
+                        />
+                      </motion.div>
+
+                      <motion.h3
+                        className="font-serif text-xl font-normal text-brand-green-dark mb-4"
+                        animate={{
+                          color: hoveredCard === index ? "#003300" : "#417C41",
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {reason.title}
+                      </motion.h3>
+
+                      <p className="font-sans text-muted-foreground text-pretty font-medium flex-grow">
+                        {reason.description}
+                      </p>
+                    </>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Título y descripción DEBAJO de la card redonda para Socios Fundadores */}
+              {reason.isFounder && (
+                <div className="text-center mt-4 w-64">
+                  {" "}
+                  {/* Mismo ancho que la card */}
                   <motion.h3
-                    className="font-serif text-xl font-normal text-brand-green-dark mb-4"
-                    animate={{
-                      color: hoveredCard === index ? "#003300" : "#417C41",
-                    }}
-                    transition={{ duration: 0.2 }}
+                    className="font-serif text-xl font-normal text-brand-green-dark mb-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
                   >
                     {reason.title}
                   </motion.h3>
-                  <p className="font-sans text-muted-foreground text-pretty font-medium">
+                  <p className="font-sans text-muted-foreground text-sm">
                     {reason.description}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>
 
         <motion.div
-          className="mt-16 bg-[#FFB91D] rounded-xl p-8 border border-black/30"
+          className="mt-16 bg-[#FFB91D] rounded-xl p-4 md:p-8 border border-black/30"
           variants={statsVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           onViewportEnter={() => setVisibleStats(true)}
         >
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-center">
             {t.whyChooseUs.stats.items.map((stat, index) => {
               const animatedValue = [
                 animatedNumbers.operations,

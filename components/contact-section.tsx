@@ -36,18 +36,21 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/email/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: formData.email, // quien llena el form
-          subject: `Consulta de ${formData.name} (${formData.phone})`,
-          message: `
+      const response = await fetch(
+        "https://api-nexus.atomsolucionesit.com.ar/api/email/send",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            from: formData.email, // quien llena el form
+            subject: `Consulta de ${formData.name} (${formData.phone})`,
+            message: `
           Tipo de consulta: ${formData.consultType || "No especificado"}
           Mensaje: ${formData.message}
         `,
-        }),
-      });
+          }),
+        }
+      );
 
       const data = await response.json();
       if (data.success) {
@@ -337,9 +340,7 @@ export function ContactSection() {
                         {t.contact.info.hours}
                       </div>
                       <div className="text-muted-foreground font-medium">
-                        Lun - Vie: 9:00 - 18:00
-                        <br />
-                        Sáb: 9:00 - 13:00
+                        Lunes a viernes de 8 a 17hs
                       </div>
                     </div>
                   </div>

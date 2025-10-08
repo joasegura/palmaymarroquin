@@ -200,7 +200,6 @@ export const translations: Record<string, Translations> = {
         },
       ],
     },
-
     whyChooseUs: {
       title: "¿Por qué elegirnos?",
       subtitle: "Somos la opción confiable para tus operaciones inmobiliarias",
@@ -237,7 +236,7 @@ export const translations: Record<string, Translations> = {
         },
         {
           title: "Socios Fundadores",
-          description: "Cámara argentina inmobiliaria rural",
+          description: "Cámara Argentina de inmobiliaria rural",
         },
       ],
       stats: {
@@ -247,7 +246,7 @@ export const translations: Record<string, Translations> = {
           { number: 500, suffix: "+", label: "Operaciones Exitosas" },
           { number: 850, suffix: "+", label: "Tasaciones Realizadas" },
           { number: 98, suffix: "%", label: "Satisfacción del Cliente" },
-          { number: 24, suffix: "/7", label: "Atención Disponible" },
+          // { number: 24, suffix: "/7", label: "Atención Disponible" },
         ],
       },
     },
@@ -440,7 +439,7 @@ export const translations: Record<string, Translations> = {
         },
         {
           title: "Socios Fundadores",
-          description: "Cámara Argentina Inmobiliaria Rural",
+          description: "Cámara Argentina de Inmobiliaria Rural",
         },
       ],
       stats: {
@@ -450,7 +449,7 @@ export const translations: Record<string, Translations> = {
           { number: 500, suffix: "+", label: "Operações Bem-sucedidas" },
           { number: 850, suffix: "+", label: "Avaliações Realizadas" },
           { number: 98, suffix: "%", label: "Satisfação do Cliente" },
-          { number: 24, suffix: "/7", label: "Atendimento Disponível" },
+          // { number: 24, suffix: "/7", label: "Atendimento Disponível" },
         ],
       },
     },
