@@ -65,20 +65,20 @@ export default function ServiceCardsCarousel({
               : "bg-brand-green-primary";
 
             let className =
-              "absolute h-auto transition-all duration-500 ease-in-out ";
+              "absolute transition-all duration-500 ease-in-out ";
 
             if (isActive) {
               className +=
-                "w-md max-w-xs sm:max-w-sm md:max-w-md aspect-[4/4] z-20 opacity-100 transform translate-x-0";
+                "w-full max-w-xs sm:max-w-sm md:max-w-md z-20 opacity-100 transform translate-x-0 h-auto";
             } else if (isPrev) {
               className +=
-                "w-10/12 max-w-xs sm:max-w-sm md:max-w-xs aspect-[4/4] z-10 opacity-90 transform md:-translate-x-2/2 -translate-x-0";
+                "w-10/12 max-w-xs sm:max-w-sm md:max-w-xs z-10 opacity-90 transform md:-translate-x-2/2 -translate-x-0 h-auto";
             } else if (isNext) {
               className +=
-                "w-10/12 max-w-xs sm:max-w-sm md:max-w-xs aspect-[4/4] z-10 opacity-90 transform md:translate-x-2/2 translate-x-0";
+                "w-10/12 max-w-xs sm:max-w-sm md:max-w-xs z-10 opacity-90 transform md:translate-x-2/2 translate-x-0 h-auto";
             } else {
               className +=
-                "w-9/12 max-w-xs sm:max-w-sm md:max-w-md aspect-[4/4] z-0 opacity-30 transform scale-75";
+                "w-9/12 max-w-xs sm:max-w-sm md:max-w-md z-0 opacity-30 transform scale-75 h-auto";
             }
 
             return (
@@ -88,14 +88,14 @@ export default function ServiceCardsCarousel({
                 onClick={() => setCurrentIndex(index)}
               >
                 <div
-                  className="w-full h-full rounded-lg shadow-lg border flex flex-col overflow-hidden bg-center bg-cover"
+                  className="w-full rounded-lg shadow-lg border flex flex-col overflow-hidden bg-center bg-cover"
                   style={{
                     backgroundImage: `url(${
                       bgImages[index % bgImages.length]
                     })`,
                   }}
                 >
-                  <div className={`w-full h-full bg-white/70`}>
+                  <div className={`w-full bg-white/70`}>
                     <div className="p-4 sm:p-6 flex items-center justify-center">
                       <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-brand-green-primary/10 flex items-center justify-center">
                         {service.icon}

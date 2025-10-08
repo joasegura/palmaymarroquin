@@ -315,7 +315,7 @@ export function ContactSection() {
                         {t.contact.info.email}
                       </div>
                       <div className="text-muted-foreground font-medium">
-                        info@palmaymarroquin.com.ar
+                        palmaymarroquin@gmail.com
                       </div>
                     </div>
                   </div>
