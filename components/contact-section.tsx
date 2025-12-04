@@ -302,11 +302,8 @@ export function ContactSection() {
                       <div className="font-semibold text-foreground">
                         {t.contact.info.phone}
                       </div>
-                      {/* <div className="text-muted-foreground font-medium">
-                        (3772)43-0980
-                      </div> */}
                       <div className="text-muted-foreground font-medium">
-                        WhatsApp: (3772)43-0980
+                        WhatsApp: (3772)63-4481
                       </div>
                     </div>
                   </div>
@@ -374,7 +371,7 @@ export function ContactSection() {
                     text: t.contact.quickActions.whatsapp,
                     action: () =>
                       window.open(
-                        "https://wa.me/5493772430983?text=Hola, me interesa conocer más sobre sus servicios inmobiliarios",
+                        "https://wa.me/5493772634481?text=Hola, me interesa conocer más sobre sus servicios inmobiliarios",
                         "_blank"
                       ),
                   },

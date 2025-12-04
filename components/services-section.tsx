@@ -22,7 +22,7 @@ export function ServicesSection() {
   const isMobile = useIsMobile();
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/3772430983", "_blank");
+    window.open("https://wa.me/3772634481", "_blank");
   };
 
   const iconComponents = [Home, Tractor, FileText, Home, Tractor, FileText];

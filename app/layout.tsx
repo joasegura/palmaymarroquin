@@ -1,5 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
@@ -25,7 +26,6 @@ export const metadata: Metadata = {
   title: "Palma & Marroquín",
   description:
     "Especialistas en venta de propiedades, campos y tasaciones profesionales. Experiencia, confianza y transparencia en cada operación.",
-  generator: "v0.app",
   icons: {
     icon: "https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/favicon.ico",
   },
@@ -39,6 +39,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <Script id="gtm" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-K8TFW6WD');`}
+        </Script>
         <link
           rel="preload"
           href="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/portada.mp4"
@@ -46,11 +53,22 @@ export default function RootLayout({
           type="video/mp4"
           crossOrigin="anonymous"
         />
+
+
+
       </head>
 
       <body
         className={`font-sans ${dmSans.variable} ${dmSerifDisplay.variable}`}
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-K8TFW6WD"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <TranslationProvider>
           <Suspense fallback={null}>{children}</Suspense>
           <Toaster position="top-right" />
@@ -58,6 +76,8 @@ export default function RootLayout({
           <VideoOptimizer />
           <GlobalLoader />
         </TranslationProvider>
+
+
       </body>
     </html>
   );

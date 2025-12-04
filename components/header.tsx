@@ -20,7 +20,7 @@ export function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/3772430983", "_blank");
+    window.open("https://wa.me/3772634481", "_blank");
   };
 
   const toggleMenu = () => {
@@ -57,16 +57,16 @@ export function Header() {
       style={{ backgroundColor: "#003300" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center">
               <Image
                 src="https://cdn.atomsolucionesit.com.ar/media/palmaymarroquin/img/Logotipo.png"
                 alt="Palma Marroquín"
-                className="h-14 w-auto object-contain"
-                width={200}
-                height={56}
+                className="h-14 md:h-20 w-auto object-contain"
+                width={260}
+                height={80}
                 priority
               />
             </a>

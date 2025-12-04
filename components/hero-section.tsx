@@ -42,7 +42,7 @@ export function HeroSection() {
   };
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/3772430983", "_blank");
+    window.open("https://wa.me/3772634481", "_blank");
   };
 
   if (!mounted) {

@@ -4,7 +4,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppBubble: React.FC = () => {
-  const phoneNumber: string = "3772430983";
+  const phoneNumber: string = "3772634481";
 
   const handleClick = (): void => {
     window.open(`https://wa.me/${phoneNumber}`, "_blank");

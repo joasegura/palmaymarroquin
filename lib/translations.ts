@@ -155,11 +155,11 @@ export const translations: Record<string, Translations> = {
     },
     hero: {
       badge: "🏆 Inmobiliaria Líder en Corrientes",
-      title: "Encuentra tu",
+      title: "Encontra tu",
       titleHighlight: "propiedad ideal",
       subtitle:
         "Con más de 15 años de experiencia, te ayudamos a encontrar la propiedad perfecta en Corrientes. Compra, vende o alquila con confianza.",
-      cta: "Consultar Gratis",
+      cta: "Consultar",
     },
     services: {
       title: "Nuestros Servicios",
@@ -253,13 +253,13 @@ export const translations: Record<string, Translations> = {
     contact: {
       title: "Empezá tu Proyecto Inmobiliario Hoy",
       subtitle:
-        "Contactanos para una consulta gratuita y descubrí cómo podemos ayudarte",
+        "Contactanos para una consulta y descubrí cómo podemos ayudarte",
       form: {
         name: "Nombre y Apellido",
         email: "Email",
         phone: "Teléfono",
         message: "Mensaje",
-        submit: "Consultá Gratis Ahora",
+        submit: "Consultá Ahora",
         loading: "Enviando...",
       },
       quickActions: {
@@ -309,7 +309,7 @@ export const translations: Record<string, Translations> = {
       contact: {
         title: "Contacto",
         address: "Colón 826, Paso de los Libres, Corrientes",
-        phone: "(3772) 43-0983",
+        phone: "(3772) 63-4481",
         email: "info@palmamarroquin.com",
       },
       copyright: "© 2024 Palma & Marroquín. Todos los derechos reservados.",
@@ -361,7 +361,7 @@ export const translations: Record<string, Translations> = {
       titleHighlight: "propriedade ideal",
       subtitle:
         "Com mais de 15 anos de experiência, ajudamos você a encontrar a propriedade perfeita em Corrientes. Compre, venda ou alugue com confiança.",
-      cta: "Consultar Grátis",
+      cta: "Consultar",
     },
     services: {
       title: "Nossos Serviços",
@@ -462,7 +462,7 @@ export const translations: Record<string, Translations> = {
         email: "E-mail",
         phone: "Telefone",
         message: "Mensagem",
-        submit: "Consultar Grátis Agora",
+        submit: "Consultar Agora",
         loading: "Enviando...",
       },
       quickActions: {
@@ -512,7 +512,7 @@ export const translations: Record<string, Translations> = {
       contact: {
         title: "Contato",
         address: "Colón 826, Corrientes",
-        phone: "(011) 2345-6789",
+        phone: "(3772) 63-4481",
         email: "info@palma-marroquin.com",
       },
       copyright: "© 2024 Palma & Marroquín. Todos os direitos reservados.",
