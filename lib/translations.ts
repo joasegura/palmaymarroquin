@@ -155,10 +155,10 @@ export const translations: Record<string, Translations> = {
     },
     hero: {
       badge: "🏆 Inmobiliaria Líder en Corrientes",
-      title: "Encontra tu",
-      titleHighlight: "propiedad ideal",
+      title: "ENCONTRÁ TU",
+      titleHighlight: "PROPIEDAD IDEAL",
       subtitle:
-        "Con más de 15 años de experiencia, te ayudamos a encontrar la propiedad perfecta en Corrientes. Compra, vende o alquila con confianza.",
+        "Con más de 15 años de experiencia, te ayudamos a encontrar tu propiedad ideal.\nComprá, vendé o alquilá con confianza.",
       cta: "Consultar",
     },
     services: {
@@ -169,7 +169,7 @@ export const translations: Record<string, Translations> = {
         {
           title: "Venta de Propiedades",
           description:
-            "Casas, departamentos y terrenos en las mejores ubicaciones de Corrientes",
+            "Casas, departamentos y terrenos en las mejores ubicaciones de Corrientes.",
           features: [
             "Asesoramiento personalizado en la compra/venta",
             "Amplia cartera de propiedades exclusivas",
@@ -180,7 +180,7 @@ export const translations: Record<string, Translations> = {
         {
           title: "Divisiones",
           description:
-            "Organiza y valoriza tu propiedad rural con nuestras soluciones de división de terrenos.",
+            "Organizá y valorizá tu propiedad rural con nuestras soluciones de división de terrenos.",
           features: [
             "Asesoramiento técnico y legal para la correcta subdivisión de parcelas",
             "Planificación según la normativa vigente y las características del suelo",
@@ -190,7 +190,7 @@ export const translations: Record<string, Translations> = {
         },
         {
           title: "Tasaciones",
-          description: "Valuaciones profesionales y precisas para tu propiedad",
+          description: "Valuaciones profesionales y precisas para tu propiedad.",
           features: [
             "Análisis detallado del mercado inmobiliario",
             "Tasaciones confiables y certificadas",
@@ -236,7 +236,7 @@ export const translations: Record<string, Translations> = {
         },
         {
           title: "Socios Fundadores",
-          description: "Cámara Argentina de inmobiliaria rural",
+          description: "Cámara Argentina de Inmobiliaria Rural",
         },
       ],
       stats: {
@@ -288,31 +288,23 @@ export const translations: Record<string, Translations> = {
         title: "Servicios",
         items: [
           "Venta de Propiedades",
-          "Alquileres",
           "Tasaciones",
           "Asesoramiento Legal",
           "Inversiones",
-          "Administración",
+          "Divisiones",
         ],
       },
       companyLinks: {
         title: "Empresa",
-        items: [
-          "Sobre Nosotros",
-          "Nuestro Equipo",
-          "Testimonios",
-          "Blog",
-          "Carreras",
-          "Contacto",
-        ],
+        items: ["Sobre Nosotros", "Testimonios", "Contacto"],
       },
       contact: {
         title: "Contacto",
         address: "Colón 826, Paso de los Libres, Corrientes",
         phone: "(3772) 63-4481",
-        email: "info@palmamarroquin.com",
+        email: "palmaymarroquin@gmail.com",
       },
-      copyright: "© 2024 Palma & Marroquín. Todos los derechos reservados.",
+      copyright: "© 2025 Palma & Marroquín. Todos los derechos reservados.",
       privacy: "Política de Privacidad",
       terms: "Términos y Condiciones",
     },
@@ -491,31 +483,23 @@ export const translations: Record<string, Translations> = {
         title: "Serviços",
         items: [
           "Venda de Propriedades",
-          "Aluguéis",
           "Avaliações",
           "Assessoria Jurídica",
           "Investimentos",
-          "Administração",
+          "Divisões",
         ],
       },
       companyLinks: {
         title: "Empresa",
-        items: [
-          "Sobre Nós",
-          "Nossa Equipe",
-          "Depoimentos",
-          "Blog",
-          "Carreiras",
-          "Contato",
-        ],
+        items: ["Sobre Nós", "Depoimentos", "Contato"],
       },
       contact: {
         title: "Contato",
-        address: "Colón 826, Corrientes",
+        address: "Colón 826, Paso de los Libres, Corrientes",
         phone: "(3772) 63-4481",
-        email: "info@palma-marroquin.com",
+        email: "palmaymarroquin@gmail.com",
       },
-      copyright: "© 2024 Palma & Marroquín. Todos os direitos reservados.",
+      copyright: "© 2025 Palma & Marroquín. Todos os direitos reservados.",
       privacy: "Política de Privacidade",
       terms: "Termos e Condições",
     },

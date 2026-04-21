@@ -108,7 +108,6 @@ export function Header() {
                 variant="outline"
                 className="bg-white/10 border-white/20 text-white hover:bg-white/20 flex items-center space-x-2 h-9"
                 onClick={() => {
-                  console.log("Button clicked!");
                   setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
                 }}
               >
@@ -132,7 +131,6 @@ export function Header() {
                 >
                   <button
                     onClick={() => {
-                      console.log("Español clicked!");
                       setLanguage("es");
                       setIsLanguageDropdownOpen(false);
                     }}
@@ -154,7 +152,6 @@ export function Header() {
                   </button>
                   <button
                     onClick={() => {
-                      console.log("Português clicked!");
                       setLanguage("pt");
                       setIsLanguageDropdownOpen(false);
                     }}
@@ -177,7 +174,10 @@ export function Header() {
                 </div>
               )}
             </div>
-            <Button className="bg-white text-[#003300] hover:bg-white/90">
+            <Button
+              className="bg-white text-[#003300] hover:bg-white/90"
+              onClick={handleWhatsAppClick}
+            >
               {t.header.consultar}
             </Button>
           </div>
@@ -230,7 +230,6 @@ export function Header() {
                     variant="outline"
                     className="bg-white/10 border-white/20 text-white hover:bg-white/20 flex items-center space-x-2 h-9"
                     onClick={() => {
-                      console.log("Button clicked!");
                       setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
                     }}
                   >
@@ -254,7 +253,6 @@ export function Header() {
                     >
                       <button
                         onClick={() => {
-                          console.log("Español clicked!");
                           setLanguage("es");
                           setIsLanguageDropdownOpen(false);
                         }}
@@ -276,7 +274,6 @@ export function Header() {
                       </button>
                       <button
                         onClick={() => {
-                          console.log("Português clicked!");
                           setLanguage("pt");
                           setIsLanguageDropdownOpen(false);
                         }}
@@ -299,7 +296,10 @@ export function Header() {
                     </div>
                   )}
                 </div>
-                <Button className="w-full bg-white text-[#003300] hover:bg-white/90">
+                <Button
+                  className="w-full bg-white text-[#003300] hover:bg-white/90"
+                  onClick={handleWhatsAppClick}
+                >
                   {t.header.consultar}
                 </Button>
               </div>

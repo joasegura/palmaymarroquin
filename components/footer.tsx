@@ -1,6 +1,6 @@
 "use client"
 
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react"
 import { motion } from "framer-motion"
 import { useTranslation } from "@/contexts/translation-context"
 
@@ -49,13 +49,14 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               {[
-                { icon: Facebook, href: "#" },
+                { icon: Facebook, href: "https://facebook.com/PalmayMarroquin" },
                 { icon: Instagram, href: "https://www.instagram.com/palmaymarroquin/" },
-                { icon: Linkedin, href: "#" }
               ].map((social, index) => (
                 <motion.a 
                   key={index}
                   href={social.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
@@ -78,9 +79,9 @@ export function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  <span className="text-primary-foreground/80">
                     {service}
-                  </a>
+                  </span>
                 </motion.li>
               ))}
             </ul>
@@ -98,9 +99,9 @@ export function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  <span className="text-primary-foreground/80">
                     {link}
-                  </a>
+                  </span>
                 </motion.li>
               ))}
             </ul>
@@ -111,9 +112,9 @@ export function Footer() {
             <h4 className="font-semibold mb-4">{t.footer.contact.title}</h4>
             <div className="space-y-3 text-sm">
               {[
-                { icon: Phone, text: t.footer.contact.phone },
-                { icon: Mail, text: t.footer.contact.email },
-                { icon: MapPin, text: t.footer.contact.address }
+                { icon: Phone, text: t.footer.contact.phone, type: "text" },
+                { icon: Mail, text: t.footer.contact.email, type: "email" },
+                { icon: MapPin, text: t.footer.contact.address, type: "text" },
               ].map((contact, index) => (
                 <motion.div
                   key={index}
@@ -124,9 +125,18 @@ export function Footer() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <contact.icon className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-primary-foreground/80 whitespace-pre-line">
-                    {contact.text}
-                  </span>
+                  {contact.type === "email" ? (
+                    <a
+                      href="mailto:palmaymarroquin@gmail.com"
+                      className="text-primary-foreground/80 hover:text-primary-foreground transition-colors whitespace-pre-line"
+                    >
+                      {contact.text}
+                    </a>
+                  ) : (
+                    <span className="text-primary-foreground/80 whitespace-pre-line">
+                      {contact.text}
+                    </span>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -157,13 +167,9 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <a href="#" className="hover:text-primary-foreground transition-colors">
-                {t.footer.privacy}
-              </a>
-              <a href="#" className="hover:text-primary-foreground transition-colors">
-                {t.footer.terms}
-              </a>
-              <span>Matrícula N° 12345</span>
+              <span>{t.footer.privacy}</span>
+              <span>{t.footer.terms}</span>
+              <span>Matrícula N°00335 - N°00003</span>
             </motion.div>
           </div>
         </motion.div>

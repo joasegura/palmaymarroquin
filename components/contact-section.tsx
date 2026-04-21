@@ -315,7 +315,12 @@ export function ContactSection() {
                         {t.contact.info.email}
                       </div>
                       <div className="text-muted-foreground font-medium">
-                        palmaymarroquin@gmail.com
+                        <a
+                          href="mailto:palmaymarroquin@gmail.com"
+                          className="hover:text-brand-green-dark transition-colors"
+                        >
+                          palmaymarroquin@gmail.com
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -328,7 +333,7 @@ export function ContactSection() {
                       </div>
                       <div className="text-muted-foreground font-medium">
                         Colón 826, <br />
-                        Corrientes, Argentina
+                        Paso de los Libres, Corrientes
                       </div>
                     </div>
                   </div>
@@ -445,13 +450,13 @@ export function ContactSection() {
                               Palma & Marroquín
                             </p>
                             <p className="text-xs text-muted-foreground">
-                              Colón 826, Corrientes
+                              Colón 826, Paso de los Libres, Corrientes
                             </p>
                           </div>
                           <Button
                             onClick={() =>
                               window.open(
-                                "https://maps.google.com/?q=Colón+1234,+Corrientes,+Argentina",
+                                "https://maps.google.com/?q=Colón+826,+Paso+de+los+Libres,+Corrientes",
                                 "_blank"
                               )
                             }

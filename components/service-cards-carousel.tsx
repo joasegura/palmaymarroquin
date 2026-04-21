@@ -53,16 +53,11 @@ export default function ServiceCardsCarousel({
             const isPrev =
               index === (currentIndex - 1 + ordered.length) % ordered.length;
             const isNext = index === (currentIndex + 1) % ordered.length;
-            const isLightCard = index % 3 !== 0; // card 2 and 3 => white text
-            const titleColorClass = isLightCard
-              ? "text-white  font-semibold"
-              : "text-black font-semibold";
-            const descColorClass = isLightCard
-              ? "bg-white/70"
-              : "text-gray-800";
-            const bulletColorClass = isLightCard
-              ? "bg-white"
-              : "bg-brand-green-primary";
+            const isTasacionesCard =
+              service.title === "Tasaciones" || service.title === "Avaliações";
+            const bulletColorClass = isTasacionesCard
+              ? "bg-brand-green-dark"
+              : "bg-green-300";
 
             let className =
               "absolute transition-all duration-500 ease-in-out ";
@@ -123,7 +118,7 @@ export default function ServiceCardsCarousel({
                           {service.features.map((f, i) => (
                             <li key={i} className="flex items-start gap-2">
                               <span
-                                className={`mt-1 inline-block h-2 w-2 rounded-full bg-green-300`}
+                                className={`mt-1 inline-block h-2 w-2 rounded-full ${bulletColorClass}`}
                               />
                               <span className="font-semibold">{f}</span>
                             </li>
